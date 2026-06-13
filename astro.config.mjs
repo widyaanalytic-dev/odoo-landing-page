@@ -8,5 +8,9 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
+    preview: {
+      // EasyPanel (and custom domains) proxy via Host header; Vite blocks unknown hosts by default.
+      allowedHosts: true,
+    },
   },
 });
