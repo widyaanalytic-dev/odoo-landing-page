@@ -11,6 +11,7 @@ interface SiloNodeProps {
   phaseId: ProblemVisualPhaseId;
   index: number;
   reducedMotion: boolean;
+  compact?: boolean;
 }
 
 export function SiloNode({
@@ -21,6 +22,7 @@ export function SiloNode({
   phaseId,
   index,
   reducedMotion,
+  compact = false,
 }: SiloNodeProps) {
   const Icon = silo.icon;
   const isSeamless = phaseId === 'seamless';
@@ -30,7 +32,7 @@ export function SiloNode({
   return (
     <motion.div
       layoutId={`problem-silo-${silo.id}`}
-      className={`absolute left-1/2 top-1/2 w-[8.75rem] -translate-x-1/2 -translate-y-1/2 rounded-2xl border px-3.5 py-3 shadow-md shadow-brand-navy/[0.06] ${silo.color}`}
+      className={`absolute left-1/2 top-1/2 w-[7.25rem] -translate-x-1/2 -translate-y-1/2 rounded-2xl border px-3 py-2.5 shadow-md shadow-brand-navy/[0.06] sm:w-[8.75rem] sm:px-3.5 sm:py-3 ${compact ? 'text-[11px] sm:text-xs' : ''} ${silo.color}`}
       style={{ zIndex: layout.zIndex }}
       initial={
         reducedMotion

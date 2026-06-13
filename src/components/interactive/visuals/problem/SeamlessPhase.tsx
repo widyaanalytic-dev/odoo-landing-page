@@ -5,6 +5,7 @@ import {
   PROBLEM_SCENE,
   PROBLEM_SILOS,
   SILO_CONNECTOR_INSET,
+  compactSiloLayout,
   siloAnchor,
 } from '../problem.visual.config';
 
@@ -18,9 +19,10 @@ type SeamlessContent = {
 interface SeamlessPhaseProps {
   content: SeamlessContent;
   reducedMotion: boolean;
+  compact?: boolean;
 }
 
-export function SeamlessPhase({ content, reducedMotion }: SeamlessPhaseProps) {
+export function SeamlessPhase({ content, reducedMotion, compact = false }: SeamlessPhaseProps) {
   return (
     <motion.div
       className="pointer-events-none absolute inset-0"
@@ -37,8 +39,10 @@ export function SeamlessPhase({ content, reducedMotion }: SeamlessPhaseProps) {
       >
         {PROBLEM_SILOS.slice(0, -1).map((silo, i) => {
           const next = PROBLEM_SILOS[i + 1];
-          const a = siloAnchor(silo.seamlessPosition);
-          const b = siloAnchor(next.seamlessPosition);
+          const aLayout = compact ? compactSiloLayout(silo.seamlessPosition) : silo.seamlessPosition;
+          const bLayout = compact ? compactSiloLayout(next.seamlessPosition) : next.seamlessPosition;
+          const a = siloAnchor(aLayout);
+          const b = siloAnchor(bLayout);
           const y = a.y + 18;
           return (
             <motion.line
@@ -59,7 +63,7 @@ export function SeamlessPhase({ content, reducedMotion }: SeamlessPhaseProps) {
       </svg>
 
       <motion.div
-        className="absolute inset-x-6 bottom-[10%] sm:inset-x-10"
+        className="absolute inset-x-4 bottom-[12%] sm:inset-x-6 sm:bottom-[10%] lg:inset-x-10"
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.85, ease: fluidEase }}

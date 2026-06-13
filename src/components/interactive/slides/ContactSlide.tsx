@@ -13,7 +13,7 @@ import { CtaVisual } from '../visuals/CtaVisual';
 
 export function ContactSlide({ index, meta }: SlideComponentProps) {
   const { locale } = useLang();
-  const content = t(landingContent.cta, locale);
+  const content = t(landingContent.contact, locale);
   const visual = content.visual;
   const [copied, setCopied] = useState(false);
 

@@ -1,4 +1,5 @@
-import type { BackdropVariant, SlideVariant } from '../components/interactive/ui/SlideLayout';
+import type { BackdropVariant, SlideVariant } from './slide-layout.types';
+import type { LandingContentKey } from './slide-content.map';
 
 export type SlideId =
   | 'hero'
@@ -23,26 +24,28 @@ export interface SlideMeta {
   variant: SlideVariant;
   backdrop: BackdropVariant;
   dark?: boolean;
+  /** Primary key in landingContent — see slide-content.map.ts */
+  contentKey: LandingContentKey;
 }
 
 export type SlideComponentProps = { index: number; meta: SlideMeta };
 
 export const slideMetaList: SlideMeta[] = [
-  { id: 'hero', label: 'Hero', variant: 'hero', backdrop: 'glow' },
-  { id: 'about-company', label: 'About', variant: 'split', backdrop: 'muted' },
-  { id: 'about-vision', label: 'About', variant: 'split', backdrop: 'light' },
-  { id: 'about-products', label: 'Products', variant: 'centered', backdrop: 'muted' },
-  { id: 'problem', label: 'Problem', variant: 'visual-wide', backdrop: 'light' },
-  { id: 'pain-data', label: 'Pain', variant: 'split', backdrop: 'muted' },
-  { id: 'pain-process', label: 'Pain', variant: 'split-reverse', backdrop: 'light' },
-  { id: 'empathy', label: 'Empathy', variant: 'split', backdrop: 'glow' },
-  { id: 'solution', label: 'Solution', variant: 'split-reverse', backdrop: 'muted' },
-  { id: 'why-us', label: 'Why us', variant: 'split', backdrop: 'glow' },
-  { id: 'modules', label: 'Modules', variant: 'split-reverse', backdrop: 'light' },
-  { id: 'process', label: 'Process', variant: 'split', backdrop: 'muted' },
-  { id: 'portfolio-production', label: 'Portfolio', variant: 'split-reverse', backdrop: 'glow' },
-  { id: 'portfolio-services', label: 'Portfolio', variant: 'split', backdrop: 'muted' },
-  { id: 'contact', label: 'Contact', variant: 'split-reverse', backdrop: 'glow' },
+  { id: 'hero', label: 'Hero', variant: 'hero', backdrop: 'glow', contentKey: 'hero' },
+  { id: 'about-company', label: 'About', variant: 'split', backdrop: 'muted', contentKey: 'aboutCompany' },
+  { id: 'about-vision', label: 'About', variant: 'split', backdrop: 'light', contentKey: 'aboutVision' },
+  { id: 'about-products', label: 'Products', variant: 'centered', backdrop: 'muted', contentKey: 'aboutProducts' },
+  { id: 'problem', label: 'Problem', variant: 'visual-wide', backdrop: 'light', contentKey: 'problem' },
+  { id: 'pain-data', label: 'Pain', variant: 'split', backdrop: 'muted', contentKey: 'pain' },
+  { id: 'pain-process', label: 'Pain', variant: 'split-reverse', backdrop: 'light', contentKey: 'pain' },
+  { id: 'empathy', label: 'Empathy', variant: 'split', backdrop: 'glow', contentKey: 'empathy' },
+  { id: 'solution', label: 'Solution', variant: 'split-reverse', backdrop: 'muted', contentKey: 'solution' },
+  { id: 'why-us', label: 'Why us', variant: 'split', backdrop: 'glow', contentKey: 'whyUs' },
+  { id: 'modules', label: 'Modules', variant: 'split-reverse', backdrop: 'light', contentKey: 'modules' },
+  { id: 'process', label: 'Process', variant: 'split', backdrop: 'muted', contentKey: 'process' },
+  { id: 'portfolio-production', label: 'Portfolio', variant: 'split-reverse', backdrop: 'glow', contentKey: 'portfolioProduction' },
+  { id: 'portfolio-services', label: 'Portfolio', variant: 'split', backdrop: 'muted', contentKey: 'portfolioServices' },
+  { id: 'contact', label: 'Contact', variant: 'split-reverse', backdrop: 'glow', contentKey: 'contact' },
 ];
 
 export function getSlideIndex(slides: SlideMeta[], id: SlideId): number {
@@ -53,22 +56,32 @@ export function getSlideCount(): number {
   return slideMetaList.length;
 }
 
-export type NavSectionId = 'home' | 'about' | 'products' | 'solution' | 'modules' | 'portfolio' | 'contact';
+export type NavSectionId = 'home' | 'about' | 'solutions' | 'contact';
 
 export interface NavSection {
   id: NavSectionId;
   label: { id: string; en: string };
+  /** Slide to scroll to when the nav item is clicked */
   slideId: SlideId;
+  /** First slide where this section becomes active (defaults to slideId) */
+  groupStartSlideId?: SlideId;
 }
 
-/** Primary navbar sections — each jumps to the first slide in that group */
+/** Primary navbar — 4 grouped sections */
 export const navSections: NavSection[] = [
   { id: 'home', label: { id: 'Beranda', en: 'Home' }, slideId: 'hero' },
-  { id: 'about', label: { id: 'Tentang', en: 'About' }, slideId: 'about-company' },
-  { id: 'products', label: { id: 'Produk', en: 'Products' }, slideId: 'about-products' },
-  { id: 'solution', label: { id: 'Solusi', en: 'Solution' }, slideId: 'solution' },
-  { id: 'modules', label: { id: 'Modul', en: 'Modules' }, slideId: 'modules' },
-  { id: 'portfolio', label: { id: 'Portofolio', en: 'Portfolio' }, slideId: 'portfolio-production' },
+  {
+    id: 'about',
+    label: { id: 'Tentang', en: 'About' },
+    slideId: 'about-company',
+    groupStartSlideId: 'about-company',
+  },
+  {
+    id: 'solutions',
+    label: { id: 'Solusi', en: 'Solutions' },
+    slideId: 'solution',
+    groupStartSlideId: 'problem',
+  },
   { id: 'contact', label: { id: 'Kontak', en: 'Contact' }, slideId: 'contact' },
 ];
 
@@ -76,7 +89,8 @@ export function getActiveNavSection(activeSlide: number): NavSectionId {
   let active: NavSectionId = navSections[0].id;
 
   for (const section of navSections) {
-    const index = getSlideIndex(slideMetaList, section.slideId);
+    const startId = section.groupStartSlideId ?? section.slideId;
+    const index = getSlideIndex(slideMetaList, startId);
     if (index >= 0 && activeSlide >= index) active = section.id;
   }
 

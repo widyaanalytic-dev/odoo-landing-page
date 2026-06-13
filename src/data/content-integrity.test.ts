@@ -1,8 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { CONTACT_EMAIL, landingContent } from './landing';
-import { WHY_US_PILLAR_ORDER } from '../components/interactive/visuals/whyUs.visual.config';
-import { PROCESS_STEP_ORDER } from '../components/interactive/visuals/process.visual.config';
-import { DEFAULT_PRODUCTION_PORTFOLIO } from '../components/interactive/visuals/portfolio.visual.config';
+import { WHY_US_PILLAR_ORDER, PROCESS_STEP_ORDER, DEFAULT_PRODUCTION_PORTFOLIO } from './visual-ids';
 
 describe('content integrity', () => {
   it('why-us bullets cover every pillar id for both locales', () => {
@@ -32,7 +30,7 @@ describe('content integrity', () => {
 
   it('cta identity email uses CONTACT_EMAIL constant', () => {
     for (const locale of ['id', 'en'] as const) {
-      const emailItem = landingContent.cta[locale].visual.identity.find((item) => item.iconId === 'email');
+      const emailItem = landingContent.contact[locale].visual.identity.find((item) => item.iconId === 'email');
       expect(emailItem?.value).toBe(CONTACT_EMAIL);
       expect(emailItem && 'href' in emailItem ? emailItem.href : '').toBe(`mailto:${CONTACT_EMAIL}`);
     }

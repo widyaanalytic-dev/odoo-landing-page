@@ -1,8 +1,7 @@
-import { useCallback, useState } from 'react';
 import { fluidEase } from '../../../lib/motion';
 import { BarChart3, Brain, Layers, type LucideIcon } from 'lucide-react';
 import { motion } from 'motion/react';
-import { useSlideInView } from '../../../hooks/useSlideInView';
+import { useSlideVisibility } from '../../../hooks/useSlideVisibility';
 
 const productIcons: Record<string, LucideIcon> = {
   data: BarChart3,
@@ -16,12 +15,8 @@ interface AboutProductsVisualProps {
 }
 
 export function AboutProductsVisual({ slideIndex, products }: AboutProductsVisualProps) {
-  const [visible, setVisible] = useState(false);
+  const visible = useSlideVisibility(slideIndex);
 
-  const onEnter = useCallback(() => setVisible(true), []);
-  const onLeave = useCallback(() => setVisible(false), []);
-
-  useSlideInView(onEnter, onLeave, { slideIndex, threshold: 0.45 });
 
   return (
     <motion.div

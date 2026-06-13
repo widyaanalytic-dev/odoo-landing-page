@@ -5,6 +5,7 @@ import type { Locale } from '../../../data/landing';
 import { useLang } from '../LangProvider';
 import { ProblemSceneShell } from './ProblemSceneCard';
 import { useSlideInView } from '../../../hooks/useSlideInView';
+import { useCompactProblemScene } from '../../../hooks/useCompactProblemScene';
 import { useProblemVisualDemo } from '../../../hooks/useProblemVisualDemo';
 import type { ProblemVisualPhaseId } from './problem.visual.config';
 import { ChaosPhase } from './problem/ChaosPhase';
@@ -24,6 +25,7 @@ function phaseHint(phaseId: ProblemVisualPhaseId, locale: Locale) {
 export function ProblemVisual({ slideIndex }: ProblemVisualProps) {
   const { locale } = useLang();
   const reducedMotion = useReducedMotion();
+  const compact = useCompactProblemScene();
   const [demoActive, setDemoActive] = useState(false);
   const [phaseId, setPhaseId] = useState<ProblemVisualPhaseId>('chaos');
 
@@ -48,17 +50,17 @@ export function ProblemVisual({ slideIndex }: ProblemVisualProps) {
       hint={phaseHint(phaseId, locale)}
     >
       <ProblemSceneCanvas>
-        <SiloLayer phaseId={phaseId} content={content} reducedMotion={!!reducedMotion} />
+        <SiloLayer phaseId={phaseId} content={content} reducedMotion={!!reducedMotion} compact={compact} />
 
         <AnimatePresence mode="wait">
           {phaseId === 'chaos' && (
-            <ChaosPhase key="chaos" content={content} reducedMotion={!!reducedMotion} />
+            <ChaosPhase key="chaos" content={content} reducedMotion={!!reducedMotion} compact={compact} />
           )}
           {phaseId === 'manual' && (
             <ManualPhase key="manual" content={content} reducedMotion={!!reducedMotion} />
           )}
           {phaseId === 'seamless' && (
-            <SeamlessPhase key="seamless" content={content} reducedMotion={!!reducedMotion} />
+            <SeamlessPhase key="seamless" content={content} reducedMotion={!!reducedMotion} compact={compact} />
           )}
         </AnimatePresence>
       </ProblemSceneCanvas>

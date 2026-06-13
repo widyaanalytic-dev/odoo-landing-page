@@ -42,6 +42,27 @@ test.describe('scroll navigation', () => {
     await waitForSlideInView(page, 2);
   });
 
+  test('keyboard arrow left and right advance slides on desktop', async ({ page }) => {
+    await page.keyboard.press('ArrowRight');
+    await page.waitForTimeout(SCROLL_SETTLE_MS);
+    await waitForSlideInView(page, 1);
+
+    await page.keyboard.press('ArrowLeft');
+    await page.waitForTimeout(SCROLL_SETTLE_MS);
+    await waitForSlideInView(page, 0);
+  });
+
+  test('desktop slide arrows navigate between slides', async ({ page }) => {
+    const next = page.getByRole('button', { name: /Slide berikutnya|Next slide/i });
+    await expect(next).toBeVisible();
+
+    await next.click();
+    await waitForSlideInView(page, 1);
+
+    await page.getByRole('button', { name: /Slide sebelumnya|Previous slide/i }).click();
+    await waitForSlideInView(page, 0);
+  });
+
   test('locale toggle switches copy', async ({ page }) => {
     await expect(page.getByText('Solusi ERP Terpercaya')).toBeVisible();
 

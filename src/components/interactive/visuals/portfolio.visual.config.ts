@@ -1,13 +1,21 @@
-export type ProductionPortfolioId = 'manufacturing' | 'agritech' | 'heavy-equipment' | 'construction';
+import type {
+  ProductionPortfolioId,
+  ServicesPortfolioId,
+} from '../../../data/visual-ids';
+import {
+  DEFAULT_PRODUCTION_PORTFOLIO,
+  DEFAULT_SERVICES_PORTFOLIO,
+  PRODUCTION_PORTFOLIO_ORDER,
+  SERVICES_PORTFOLIO_ORDER,
+} from '../../../data/visual-ids';
 
-export const PRODUCTION_PORTFOLIO_ORDER: ProductionPortfolioId[] = [
-  'manufacturing',
-  'agritech',
-  'heavy-equipment',
-  'construction',
-];
-
-export const DEFAULT_PRODUCTION_PORTFOLIO: ProductionPortfolioId = 'manufacturing';
+export type { ProductionPortfolioId, ServicesPortfolioId };
+export {
+  DEFAULT_PRODUCTION_PORTFOLIO,
+  DEFAULT_SERVICES_PORTFOLIO,
+  PRODUCTION_PORTFOLIO_ORDER,
+  SERVICES_PORTFOLIO_ORDER,
+};
 
 export const productionIndustryTheme: Record<
   ProductionPortfolioId,
@@ -34,12 +42,6 @@ export const productionIndustryTheme: Record<
     glow: 'from-orange-100/40 via-brand-cyan/5 to-transparent',
   },
 };
-
-export type ServicesPortfolioId = 'healthcare' | 'hospitality' | 'services';
-
-export const SERVICES_PORTFOLIO_ORDER: ServicesPortfolioId[] = ['healthcare', 'hospitality', 'services'];
-
-export const DEFAULT_SERVICES_PORTFOLIO: ServicesPortfolioId = 'healthcare';
 
 export const servicesIndustryTheme: Record<
   ServicesPortfolioId,

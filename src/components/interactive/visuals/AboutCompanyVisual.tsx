@@ -1,9 +1,8 @@
-import { useCallback, useState } from 'react';
 import { fluidEase } from '../../../lib/motion';
 import { BarChart3, Brain, Layers, type LucideIcon } from 'lucide-react';
 import { motion } from 'motion/react';
 import { NotepadFrame } from '../ui/NotepadFrame';
-import { useSlideInView } from '../../../hooks/useSlideInView';
+import { useSlideVisibility } from '../../../hooks/useSlideVisibility';
 
 const focusIcons: Record<string, LucideIcon> = {
   data: BarChart3,
@@ -17,12 +16,8 @@ interface AboutCompanyVisualProps {
 }
 
 export function AboutCompanyVisual({ slideIndex, focusAreas }: AboutCompanyVisualProps) {
-  const [visible, setVisible] = useState(false);
+  const visible = useSlideVisibility(slideIndex);
 
-  const onEnter = useCallback(() => setVisible(true), []);
-  const onLeave = useCallback(() => setVisible(false), []);
-
-  useSlideInView(onEnter, onLeave, { slideIndex, threshold: 0.45 });
 
   return (
     <motion.div

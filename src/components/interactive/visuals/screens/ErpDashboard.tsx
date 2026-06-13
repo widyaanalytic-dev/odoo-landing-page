@@ -1,17 +1,5 @@
 import { useState } from 'react';
-import {
-  Bell,
-  ChevronDown,
-  Filter,
-  LayoutGrid,
-  List,
-  Package,
-  Plus,
-  Search,
-  ShoppingCart,
-  User,
-  Wallet,
-} from 'lucide-react';
+import { ChevronDown, Filter, List, Plus, Search } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { assertFound } from '../../../../lib/assert';
 import { useLang } from '../../LangProvider';
@@ -20,109 +8,9 @@ import { OdooAppLauncher } from './OdooAppLauncher';
 import { SalesOrderFormDemo } from './SalesOrderFormDemo';
 import { SyncToast } from './SyncToast';
 import type { ErpAppId } from './erp.types';
-import {
-  detailShell,
-  detailTabSwitch,
-} from './erp.motion';
-
-const apps = [
-  {
-    id: 'sales',
-    label: 'Sales',
-    icon: ShoppingCart,
-    breadcrumb: { id: 'Penjualan', en: 'Sales' },
-    model: { id: 'Order Penjualan', en: 'Sales Orders' },
-    newLabel: { id: 'Baru', en: 'New' },
-    columns: [
-      { key: 'name', label: { id: 'Nomor', en: 'Number' } },
-      { key: 'partner', label: { id: 'Pelanggan', en: 'Customer' } },
-      { key: 'amount', label: { id: 'Total', en: 'Total' } },
-      { key: 'state', label: { id: 'Status', en: 'Status' } },
-    ],
-    rows: [
-      {
-        name: 'SO/2024/1042',
-        partner: 'PT Maju Jaya',
-        amount: 'Rp 24.500.000',
-        state: { id: 'Konfirmasi', en: 'Sale Order' },
-        stateColor: 'bg-[#d4edda] text-[#155724]',
-        scenarioRow: true,
-      },
-      {
-        name: 'SO/2024/1043',
-        partner: 'CV Sinar Abadi',
-        amount: 'Rp 8.200.000',
-        state: { id: 'Quotation', en: 'Quotation' },
-        stateColor: 'bg-[#cce5ff] text-[#004085]',
-        scenarioRow: false,
-      },
-    ],
-  },
-  {
-    id: 'inventory',
-    label: 'Inventory',
-    icon: Package,
-    breadcrumb: { id: 'Persediaan', en: 'Inventory' },
-    model: { id: 'Produk', en: 'Products' },
-    newLabel: { id: 'Baru', en: 'New' },
-    columns: [
-      { key: 'name', label: { id: 'Referensi', en: 'Reference' } },
-      { key: 'partner', label: { id: 'Nama', en: 'Name' } },
-      { key: 'amount', label: { id: 'Stok', en: 'On Hand' } },
-      { key: 'state', label: { id: 'Lokasi', en: 'Location' } },
-    ],
-    rows: [
-      {
-        name: 'SKU/001',
-        partner: 'Widget A',
-        amount: '142 Unit',
-        amountEn: '142 Units',
-        state: { id: 'Gudang Utama', en: 'Main Stock' },
-        stateColor: 'bg-[#e2e3e5] text-[#383d41]',
-        stockBase: 142,
-      },
-      {
-        name: 'SKU/002',
-        partner: 'Widget B',
-        amount: '38 Unit',
-        amountEn: '38 Units',
-        state: { id: 'Gudang Utama', en: 'Main Stock' },
-        stateColor: 'bg-[#e2e3e5] text-[#383d41]',
-        stockBase: 38,
-      },
-    ],
-  },
-  {
-    id: 'accounting',
-    label: 'Accounting',
-    icon: Wallet,
-    breadcrumb: { id: 'Akuntansi', en: 'Accounting' },
-    model: { id: 'Faktur', en: 'Invoices' },
-    newLabel: { id: 'Baru', en: 'New' },
-    columns: [
-      { key: 'name', label: { id: 'Nomor', en: 'Number' } },
-      { key: 'partner', label: { id: 'Partner', en: 'Partner' } },
-      { key: 'amount', label: { id: 'Jumlah', en: 'Amount' } },
-      { key: 'state', label: { id: 'Status', en: 'Status' } },
-    ],
-    rows: [
-      {
-        name: 'INV/2024/0882',
-        partner: 'PT Maju Jaya',
-        amount: 'Rp 45.100.000',
-        state: { id: 'Posted', en: 'Posted' },
-        stateColor: 'bg-[#d4edda] text-[#155724]',
-      },
-      {
-        name: 'BILL/2024/0441',
-        partner: 'Supplier ABC',
-        amount: 'Rp 12.300.000',
-        state: { id: 'Draft', en: 'Draft' },
-        stateColor: 'bg-[#fff3cd] text-[#856404]',
-      },
-    ],
-  },
-] as const;
+import { ERP_APPS } from './erp.apps.config';
+import { ErpAppListPanel } from './panels/ErpAppListPanel';
+import { detailShell, detailTabSwitch } from './erp.motion';
 
 interface ErpDashboardProps {
   activeApp?: ErpAppId;
@@ -178,7 +66,7 @@ export function ErpDashboard({
   };
 
   const app = assertFound(
-    apps.find((a) => a.id === activeApp),
+    ERP_APPS.find((entry) => entry.id === activeApp),
     `ERP app missing for id "${activeApp}"`,
   );
   const ActiveIcon = app.icon;
@@ -225,48 +113,15 @@ export function ErpDashboard({
         initial={false}
         animate={showApps ? 'behindLauncher' : 'idle'}
       >
-        <div className="flex items-center gap-2 border-b border-[#dee2e6] bg-white px-2 py-1.5 lg:px-3">
-          <button
-            type="button"
-            onClick={openLauncher}
-            className="flex h-7 w-7 shrink-0 items-center justify-center rounded text-[#714b67] hover:bg-[#f5f0f4]"
-            aria-label={locale === 'id' ? 'Aplikasi' : 'Apps'}
-          >
-            <LayoutGrid size={15} strokeWidth={2} />
-          </button>
-
-          <div className="flex min-w-0 flex-1 items-center gap-1 overflow-x-auto">
-            {apps.map((a) => {
-              const TabIcon = a.icon;
-              return (
-                <button
-                  key={a.id}
-                  type="button"
-                  onClick={() => {
-                    pauseDemo();
-                    setActiveApp(a.id);
-                  }}
-                  className={`inline-flex shrink-0 items-center gap-1 rounded px-2 py-1 text-[10px] font-medium transition-colors lg:text-[11px] ${
-                    activeApp === a.id
-                      ? 'bg-[#714b67] text-white'
-                      : 'text-[#495057] hover:bg-[#f8f9fa]'
-                  }`}
-                >
-                  <TabIcon size={12} strokeWidth={2} />
-                  {a.label}
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="hidden items-center gap-1.5 sm:flex">
-            <Search size={13} className="text-[#6c757d]" />
-            <Bell size={13} className="text-[#6c757d]" />
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#714b67] text-white">
-              <User size={11} />
-            </div>
-          </div>
-        </div>
+        <ErpAppListPanel
+          activeApp={activeApp}
+          locale={locale}
+          onOpenLauncher={openLauncher}
+          onSelectApp={(id) => {
+            pauseDemo();
+            setActiveApp(id);
+          }}
+        />
 
         <AnimatePresence mode="wait">
           <motion.div

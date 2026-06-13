@@ -1,6 +1,7 @@
 import { landingContent, t } from '../../../data/landing';
+import { painSlideSlices } from '../../../data/slide-content.map';
 import type { SlideComponentProps } from '../../../data/slides.config';
-import { AnimatedChecklist } from '../AnimatedChecklist';
+import { AnimatedChecklist } from '../ui/AnimatedChecklist';
 import { useLang } from '../LangProvider';
 import { CopyBlock } from '../ui/CopyBlock';
 import { Eyebrow } from '../ui/Eyebrow';
@@ -19,9 +20,9 @@ export function PainProcessSlide({ index, meta }: SlideComponentProps) {
       visual={<PainProcessVisual slideIndex={index} />}
     >
       <div className="min-w-0 max-w-xl lg:max-w-2xl">
-        <Eyebrow>{t(landingContent.pain, locale).process}</Eyebrow>
+        <Eyebrow>{t(landingContent.pain.labels, locale)[painSlideSlices['pain-process'].eyebrow]}</Eyebrow>
         <CopyBlock delay={0.08}>
-          <AnimatedChecklist items={landingContent.painChecklist2} slideIndex={index} />
+          <AnimatedChecklist items={landingContent.pain.checklist2} slideIndex={index} />
         </CopyBlock>
       </div>
     </SlideLayout>

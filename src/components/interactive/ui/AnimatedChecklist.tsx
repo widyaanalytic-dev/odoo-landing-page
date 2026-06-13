@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { useLang } from './LangProvider';
-import { useSlideInView } from '../../hooks/useSlideInView';
-import { CheckSquare } from '../../lib/icons';
+import { useSlideInView } from '../../../hooks/useSlideInView';
+import { CheckSquare } from '../../../lib/icons';
+import { useLang } from '../LangProvider';
 
 export interface PainChecklistItem {
   before: string;

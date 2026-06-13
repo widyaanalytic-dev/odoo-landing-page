@@ -113,5 +113,19 @@ export function fractionPoint(fx: number, fy: number) {
   return { x: PROBLEM_SCENE.centerX + fx * halfW, y: PROBLEM_SCENE.centerY + fy * halfH };
 }
 
+/** Pull silos toward center on narrow viewports so chaos/seamless phases stay in frame */
+export function compactSiloLayout(layout: SiloLayout, factor = 0.84): SiloLayout {
+  return {
+    ...layout,
+    x: layout.x * factor,
+    y: layout.y * factor,
+    scale: layout.scale * 0.94,
+  };
+}
+
+export function compactPoint(x: number, y: number, factor = 0.84) {
+  return { x: x * factor, y: y * factor };
+}
+
 /** Approximate half-width of silo card in scene units for connector endpoints */
 export const SILO_CONNECTOR_INSET = 52;

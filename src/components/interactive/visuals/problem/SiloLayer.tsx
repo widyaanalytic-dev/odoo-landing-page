@@ -1,5 +1,5 @@
-import type { ProblemVisualPhaseId } from '../problem.visual.config';
-import { PROBLEM_SILOS } from '../problem.visual.config';
+import type { ProblemVisualPhaseId, SiloLayout } from '../problem.visual.config';
+import { PROBLEM_SILOS, compactSiloLayout } from '../problem.visual.config';
 import { SiloNode } from './SiloNode';
 
 type ProblemVisualContent = {
@@ -11,14 +11,20 @@ interface SiloLayerProps {
   phaseId: ProblemVisualPhaseId;
   content: ProblemVisualContent;
   reducedMotion: boolean;
+  compact?: boolean;
 }
 
-export function SiloLayer({ phaseId, content, reducedMotion }: SiloLayerProps) {
+function resolveLayout(layout: SiloLayout, compact: boolean) {
+  return compact ? compactSiloLayout(layout) : layout;
+}
+
+export function SiloLayer({ phaseId, content, reducedMotion, compact = false }: SiloLayerProps) {
   return (
     <>
       {PROBLEM_SILOS.map((silo, index) => {
-        const layout =
+        const base =
           phaseId === 'seamless' ? silo.seamlessPosition : silo.chaosPosition;
+        const layout = resolveLayout(base, compact && phaseId !== 'manual');
 
         return (
           <SiloNode
@@ -30,6 +36,7 @@ export function SiloLayer({ phaseId, content, reducedMotion }: SiloLayerProps) {
             phaseId={phaseId}
             index={index}
             reducedMotion={reducedMotion}
+            compact={compact}
           />
         );
       })}

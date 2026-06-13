@@ -24,7 +24,7 @@ export function CtaVisual({ slideIndex }: CtaVisualProps) {
   const { locale } = useLang();
   const [visible, setVisible] = useState(false);
 
-  const visual = t(landingContent.cta, locale).visual;
+  const visual = t(landingContent.contact, locale).visual;
   const identity = visual?.identity ?? [];
 
   const onEnter = useCallback(() => setVisible(true), []);

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { PROBLEM_SCENE } from '../problem.visual.config';
 
 interface ProblemSceneCanvasProps {
@@ -6,15 +6,39 @@ interface ProblemSceneCanvasProps {
 }
 
 export function ProblemSceneCanvas({ children }: ProblemSceneCanvasProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const update = () => {
+      const width = el.clientWidth;
+      if (width > 0) setScale(width / PROBLEM_SCENE.width);
+    };
+
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   return (
     <div
-      className="relative mx-auto w-full overflow-hidden"
-      style={{
-        height: `clamp(220px, 52vw, ${PROBLEM_SCENE.height}px)`,
-        maxWidth: `${PROBLEM_SCENE.width}px`,
-      }}
+      ref={containerRef}
+      className="relative mx-auto w-full max-w-[560px] overflow-visible"
+      style={{ aspectRatio: `${PROBLEM_SCENE.width} / ${PROBLEM_SCENE.height}` }}
     >
-      <div className="absolute inset-0 origin-center scale-[0.58] min-[360px]:scale-[0.68] min-[390px]:scale-[0.76] min-[430px]:scale-[0.85] sm:scale-[0.95] md:scale-100">
+      <div
+        className="absolute left-0 top-0 overflow-visible"
+        style={{
+          width: PROBLEM_SCENE.width,
+          height: PROBLEM_SCENE.height,
+          transform: `scale(${scale})`,
+          transformOrigin: 'top left',
+        }}
+      >
         <div className="relative h-full w-full">{children}</div>
       </div>
     </div>

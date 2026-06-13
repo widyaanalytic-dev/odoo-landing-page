@@ -1,17 +1,9 @@
 import type { ReactNode } from 'react';
 import { motion } from 'motion/react';
+import type { BackdropVariant, SlideVariant } from '../../../data/slide-layout.types';
 import { cn } from '../../../lib/cn';
 
-export type BackdropVariant = 'light' | 'muted' | 'dark' | 'glow';
-
-/** Layout variants used by slides in slides.config.ts */
-export type SlideVariant =
-  | 'hero'
-  | 'split'
-  | 'split-reverse'
-  | 'visual-wide'
-  | 'centered'
-  | 'text-only';
+export type { BackdropVariant, SlideVariant };
 
 /** Proof slides (7–14): padding + visual height cap via grid child */
 export const proofSlideClass =
@@ -54,7 +46,7 @@ const gridVariants: Record<SlideVariant, string> = {
   'split-reverse':
     'grid-cols-1 gap-6 w-full min-h-0 sm:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-20 xl:gap-28 lg:[&>*:first-child]:order-2',
   'visual-wide':
-    'grid-cols-1 gap-6 w-full min-h-0 sm:gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-center lg:gap-20 xl:gap-24',
+    'grid-cols-1 gap-6 w-full min-h-0 items-start sm:gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-center lg:gap-20 xl:gap-24',
   centered: 'grid-cols-1 place-items-center text-center gap-8 min-h-0 sm:gap-10 lg:gap-16',
   'text-only': 'grid-cols-1 max-w-3xl min-h-0',
 };
@@ -129,7 +121,11 @@ export function SlideLayout({
               <div className="flex min-h-0 min-w-0 w-full justify-center lg:justify-end">{visual}</div>
             ) : (
               <motion.div
-                className={cn('min-h-0 min-w-0 w-full mx-auto flex justify-center lg:mx-0 lg:block', visualVariants[resolvedVariant])}
+                className={cn(
+                  'min-w-0 w-full mx-auto flex justify-center lg:mx-0 lg:block',
+                  resolvedVariant === 'visual-wide' ? 'min-h-min lg:min-h-0' : 'min-h-0',
+                  visualVariants[resolvedVariant],
+                )}
                 initial={{ opacity: 0, y: 32, scale: 0.97 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: false, amount: 0.3 }}

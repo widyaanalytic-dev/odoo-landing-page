@@ -5,6 +5,8 @@ import {
   PROBLEM_CONFLICT_CALLOUT,
   PROBLEM_SCENE,
   PROBLEM_SILOS,
+  compactPoint,
+  compactSiloLayout,
   fractionPoint,
   layoutOffset,
   siloAnchor,
@@ -19,12 +21,16 @@ type ChaosContent = {
 interface ChaosPhaseProps {
   content: ChaosContent;
   reducedMotion: boolean;
+  compact?: boolean;
 }
 
-export function ChaosPhase({ content, reducedMotion }: ChaosPhaseProps) {
+export function ChaosPhase({ content, reducedMotion, compact = false }: ChaosPhaseProps) {
+  const callout = compact
+    ? compactPoint(PROBLEM_CONFLICT_CALLOUT.x, PROBLEM_CONFLICT_CALLOUT.y)
+    : PROBLEM_CONFLICT_CALLOUT;
   const calloutOffset = layoutOffset({
-    x: PROBLEM_CONFLICT_CALLOUT.x,
-    y: PROBLEM_CONFLICT_CALLOUT.y,
+    x: callout.x,
+    y: callout.y,
     rotate: 0,
     scale: 1,
     zIndex: 0,
@@ -45,9 +51,18 @@ export function ChaosPhase({ content, reducedMotion }: ChaosPhaseProps) {
         aria-hidden
       >
         {PROBLEM_CHAOS_CURVES.map(({ from, to, cpX, cpY }, i) => {
-          const a = siloAnchor(PROBLEM_SILOS[from].chaosPosition);
-          const b = siloAnchor(PROBLEM_SILOS[to].chaosPosition);
-          const cp = fractionPoint(cpX, cpY);
+          const fromLayout = compact
+            ? compactSiloLayout(PROBLEM_SILOS[from].chaosPosition)
+            : PROBLEM_SILOS[from].chaosPosition;
+          const toLayout = compact
+            ? compactSiloLayout(PROBLEM_SILOS[to].chaosPosition)
+            : PROBLEM_SILOS[to].chaosPosition;
+          const a = siloAnchor(fromLayout);
+          const b = siloAnchor(toLayout);
+          const cp = fractionPoint(
+            compact ? cpX * 0.84 : cpX,
+            compact ? cpY * 0.84 : cpY,
+          );
           const path = `M ${a.x} ${a.y} Q ${cp.x} ${cp.y} ${b.x} ${b.y}`;
 
           return (

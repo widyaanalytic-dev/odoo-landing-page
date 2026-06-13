@@ -1,4 +1,4 @@
-import type { PortfolioIconId } from '../../lib/icons';
+import type { PortfolioIconId } from './visual-ids';
 
 export type Locale = 'id' | 'en';
 

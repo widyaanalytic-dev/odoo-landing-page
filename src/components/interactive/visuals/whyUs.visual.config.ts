@@ -1,3 +1,2 @@
-export type WhyUsPillarId = 'industry' | 'editions' | 'versions' | 'workflow';
-
-export const WHY_US_PILLAR_ORDER: WhyUsPillarId[] = ['industry', 'editions', 'versions', 'workflow'];
+export type WhyUsPillarId = import('../../../data/visual-ids').WhyUsPillarId;
+export { WHY_US_PILLAR_ORDER } from '../../../data/visual-ids';

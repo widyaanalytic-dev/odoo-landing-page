@@ -1,8 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { slideComponents } from '../components/interactive/slides/index';
-import { getSlideCount, getSlideIndex, navSections, slideMetaList } from './slides.config';
 import { landingContent, t } from './landing';
-import type { SlideId } from './slides.config';
 
 describe('landing content', () => {
   it('t() returns locale-specific copy', () => {
@@ -10,9 +7,9 @@ describe('landing content', () => {
     expect(t(landingContent.hero, 'en').h1.highlight).toContain('ERP');
   });
 
-  it('cta copy exists for both locales', () => {
-    expect(t(landingContent.cta, 'id').highlight.accent).toBeTruthy();
-    expect(t(landingContent.cta, 'en').bullets.length).toBeGreaterThan(0);
+  it('contact copy exists for both locales', () => {
+    expect(t(landingContent.contact, 'id').highlight.accent).toBeTruthy();
+    expect(t(landingContent.contact, 'en').bullets.length).toBeGreaterThan(0);
   });
 
   it('about company copy exists for both locales', () => {
@@ -25,9 +22,9 @@ describe('landing content', () => {
     expect(en.focusAreas).toHaveLength(3);
   });
 
-  it('cta identity copy exists for both locales', () => {
-    const id = t(landingContent.cta, 'id');
-    const en = t(landingContent.cta, 'en');
+  it('contact identity copy exists for both locales', () => {
+    const id = t(landingContent.contact, 'id');
+    const en = t(landingContent.contact, 'en');
 
     expect(id.visual.identityTitle).toBeTruthy();
     expect(en.visual.identityTitle).toBeTruthy();
@@ -52,20 +49,3 @@ describe('landing content', () => {
   });
 });
 
-describe('slide registry', () => {
-  it('has a component for every slide definition', () => {
-    for (const meta of slideMetaList) {
-      expect(slideComponents[meta.id as SlideId]).toBeDefined();
-    }
-  });
-
-  it('slide count matches slide definitions', () => {
-    expect(getSlideCount()).toBe(slideMetaList.length);
-  });
-
-  it('nav sections map to valid slides', () => {
-    for (const section of navSections) {
-      expect(getSlideIndex(slideMetaList, section.slideId)).toBeGreaterThanOrEqual(0);
-    }
-  });
-});

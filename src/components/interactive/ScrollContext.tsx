@@ -1,11 +1,15 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
-import Lenis from 'lenis';
+import type Lenis from 'lenis';
 import { getSlideIndex, slideMetaList, type SlideId } from '../../data/slides.config';
+import { useLenisScroll } from '../../hooks/useLenisScroll';
 import {
   getScrollContainer,
   getScrollContent,
   SCROLL_CONTAINER_ID,
-  SCROLL_CONTENT_ID,
+  SLIDE_SCROLL_MEDIA,
+  SLIDE_NEXT_KEYS,
+  SLIDE_PREV_KEYS,
+  shouldHandleSlideKeyboard,
 } from '../../lib/scroll';
 
 export interface ScrollState {
@@ -27,9 +31,10 @@ export function ScrollProvider({
 }) {
   const [activeSlide, setActiveSlide] = useState(0);
   const [globalProgress, setGlobalProgress] = useState(0);
-  const lenisRef = useRef<Lenis | null>(null);
 
   const slideCount = slideMetaList.length;
+
+  const lenisRef = useRef<Lenis | null>(null);
 
   const updateFromScroll = useCallback((scrollTop: number) => {
     const container = getScrollContainer();
@@ -47,6 +52,15 @@ export function ScrollProvider({
     });
     setActiveSlide(found);
   }, []);
+
+  const onScroll = useCallback(() => {
+    const wrapper = getScrollContainer();
+    if (!wrapper) return;
+    const scrollTop = lenisRef.current?.scroll ?? wrapper.scrollTop;
+    updateFromScroll(scrollTop);
+  }, [updateFromScroll]);
+
+  useLenisScroll(containerId, onScroll, lenisRef);
 
   const scrollToSlide = useCallback((index: number) => {
     const container = getScrollContainer();
@@ -68,8 +82,8 @@ export function ScrollProvider({
       return;
     }
 
-    container.scrollTo({ top: section.offsetTop, behavior: 'smooth' });
-  }, []);
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [lenisRef]);
 
   const scrollToSlideById = useCallback(
     (id: SlideId) => {
@@ -80,59 +94,17 @@ export function ScrollProvider({
   );
 
   useEffect(() => {
-    const wrapper = document.getElementById(containerId);
-    const content = document.getElementById(SCROLL_CONTENT_ID);
-    if (!wrapper || !content) return;
-
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let raf = 0;
-
-    const onScroll = () => {
-      const scrollTop = lenisRef.current?.scroll ?? wrapper.scrollTop;
-      updateFromScroll(scrollTop);
-    };
-
-    if (!reducedMotion) {
-      const lenis = new Lenis({
-        wrapper,
-        content,
-        duration: 0.9,
-        smoothWheel: true,
-        syncTouch: true,
-      });
-      lenisRef.current = lenis;
-      document.documentElement.classList.add('lenis', 'lenis-smooth');
-
-      const loop = (time: number) => {
-        lenis.raf(time);
-        raf = requestAnimationFrame(loop);
-      };
-      raf = requestAnimationFrame(loop);
-
-      const unsubscribe = lenis.on('scroll', onScroll);
-      onScroll();
-
-      return () => {
-        unsubscribe();
-        cancelAnimationFrame(raf);
-        lenis.destroy();
-        lenisRef.current = null;
-        document.documentElement.classList.remove('lenis', 'lenis-smooth');
-      };
-    }
-
-    wrapper.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => wrapper.removeEventListener('scroll', onScroll);
-  }, [containerId, updateFromScroll]);
-
-  useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      if (!window.matchMedia(SLIDE_SCROLL_MEDIA).matches) return;
+      if (!shouldHandleSlideKeyboard(e.target)) return;
+
+      if (SLIDE_NEXT_KEYS.has(e.key)) {
         e.preventDefault();
         scrollToSlide(Math.min(slideCount - 1, activeSlide + 1));
+        return;
       }
-      if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+
+      if (SLIDE_PREV_KEYS.has(e.key)) {
         e.preventDefault();
         scrollToSlide(Math.max(0, activeSlide - 1));
       }

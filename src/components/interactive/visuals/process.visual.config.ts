@@ -1,11 +1,2 @@
-export type ProcessStepId = 'discovery' | 'design' | 'implementation' | 'training' | 'support';
-
-export const PROCESS_STEP_ORDER: ProcessStepId[] = [
-  'discovery',
-  'design',
-  'implementation',
-  'training',
-  'support',
-];
-
-export const DEFAULT_PROCESS_STEP: ProcessStepId = 'discovery';
+export type ProcessStepId = import('../../../data/visual-ids').ProcessStepId;
+export { DEFAULT_PROCESS_STEP, PROCESS_STEP_ORDER } from '../../../data/visual-ids';

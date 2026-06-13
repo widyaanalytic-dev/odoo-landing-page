@@ -30,7 +30,7 @@ export function HeaderNav() {
         </button>
 
         <nav
-          className="flex min-w-0 flex-1 items-center justify-center gap-0.5 overflow-x-auto lg:gap-1"
+          className="flex min-w-0 flex-1 items-center justify-center gap-1 md:gap-2"
           aria-label={navAriaLabel}
         >
           {navSections.map((section) => {
@@ -42,7 +42,7 @@ export function HeaderNav() {
                 type="button"
                 onClick={() => scrollToSlideById(section.slideId)}
                 className={cn(
-                  'shrink-0 rounded-full px-2 py-1 text-[11px] font-medium transition-colors sm:px-2.5 sm:py-1.5 sm:text-xs xl:px-3 xl:text-sm',
+                  'shrink-0 rounded-full px-3 py-1.5 text-xs font-medium transition-colors sm:px-4 sm:py-2 sm:text-sm',
                   isActive
                     ? 'bg-brand-cyan/12 text-brand-deep-navy'
                     : 'text-brand-navy/55 hover:bg-white/80 hover:text-brand-cyan',

@@ -28,7 +28,7 @@ export function PainProcessVisual({ slideIndex }: PainProcessVisualProps) {
   const { locale } = useLang();
   const reducedMotion = useReducedMotion();
   const [visible, setVisible] = useState(false);
-  const content = t(landingContent.painVisual.process, locale);
+  const content = t(landingContent.pain.visual.process, locale);
 
   const onEnter = useCallback(() => setVisible(true), []);
   const onLeave = useCallback(() => setVisible(false), []);

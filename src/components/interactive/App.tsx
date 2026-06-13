@@ -1,6 +1,7 @@
 import { LangProvider } from './LangProvider';
 import { ScrollProvider } from './ScrollContext';
 import { HeaderNav } from './HeaderNav';
+import { SlideNavArrows } from './SlideNavArrows';
 import { Slides } from './Slides';
 import { AmbientBackground } from './atmosphere/AmbientBackground';
 import { NarrativeSpine } from './atmosphere/NarrativeSpine';
@@ -12,7 +13,11 @@ export default function App() {
         <AmbientBackground />
         <NarrativeSpine />
         <HeaderNav />
-        <main id="scroll-container" className="scroll-container relative z-10 h-dvh overflow-hidden">
+        <SlideNavArrows />
+        <main
+          id="scroll-container"
+          className="scroll-container relative z-10 h-dvh overflow-y-auto overscroll-y-contain lg:overflow-hidden"
+        >
           <div id="scroll-content">
             <Slides />
           </div>

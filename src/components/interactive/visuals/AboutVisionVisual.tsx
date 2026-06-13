@@ -1,8 +1,7 @@
-import { useCallback, useState } from 'react';
 import { fluidEase } from '../../../lib/motion';
 import { motion } from 'motion/react';
 import { NotepadFrame } from '../ui/NotepadFrame';
-import { useSlideInView } from '../../../hooks/useSlideInView';
+import { useSlideVisibility } from '../../../hooks/useSlideVisibility';
 
 interface AboutVisionVisualProps {
   slideIndex: number;
@@ -11,12 +10,8 @@ interface AboutVisionVisualProps {
 }
 
 export function AboutVisionVisual({ slideIndex, missionLabel, missions }: AboutVisionVisualProps) {
-  const [visible, setVisible] = useState(false);
+  const visible = useSlideVisibility(slideIndex);
 
-  const onEnter = useCallback(() => setVisible(true), []);
-  const onLeave = useCallback(() => setVisible(false), []);
-
-  useSlideInView(onEnter, onLeave, { slideIndex, threshold: 0.45 });
 
   return (
     <motion.div

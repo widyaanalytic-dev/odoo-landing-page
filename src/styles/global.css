@@ -105,7 +105,17 @@ body {
 }
 
 .scroll-container {
-  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 1024px) {
+  .scroll-container {
+    scroll-snap-type: y mandatory;
+  }
+
+  #scroll-content {
+    scroll-snap-type: y mandatory;
+  }
 }
 
 .scroll-container.is-nav-scrolling,
@@ -113,20 +123,21 @@ body {
   scroll-snap-type: none;
 }
 
-#scroll-content {
-  scroll-snap-type: y mandatory;
-}
-
 .slide-section {
-  min-height: 100dvh;
-  overflow-x: clip;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   isolation: isolate;
 }
 
 @media (min-width: 1024px) {
   .slide-section {
+    overflow-x: clip;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slide-section {
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     height: 100dvh;
     max-height: 100dvh;
     overflow: hidden;

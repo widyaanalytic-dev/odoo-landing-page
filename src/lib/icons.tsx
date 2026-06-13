@@ -28,15 +28,9 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { cn } from './cn';
+import type { PortfolioIconId } from '../data/visual-ids';
 
-export type PortfolioIconId =
-  | 'factory'
-  | 'sprout'
-  | 'truck'
-  | 'building'
-  | 'dna'
-  | 'hotel'
-  | 'briefcase';
+export type { PortfolioIconId };
 
 export const portfolioIcons: Record<PortfolioIconId, LucideIcon> = {
   factory: Factory,

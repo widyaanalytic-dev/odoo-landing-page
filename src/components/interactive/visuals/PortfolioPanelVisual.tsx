@@ -97,9 +97,9 @@ export function PortfolioPanelVisual({
                     <motion.button
                       key={item.id}
                       type="button"
-                        role="tab"
-                        aria-selected={activeItemId === item.id}
-                        aria-controls={`portfolio-panel-${item.id}`}
+                      role="tab"
+                      aria-selected={activeItemId === item.id}
+                      aria-controls={`portfolio-panel-${item.id}`}
                       onClick={() => openItem(item.id)}
                       className={cn(
                         'group relative flex h-full w-full min-w-0 flex-col items-center justify-center overflow-hidden rounded-lg border border-brand-navy/10 bg-white/95 p-3 text-center shadow-sm shadow-brand-navy/8 transition-all hover:border-brand-cyan/30 hover:shadow-md hover:shadow-brand-cyan/10 sm:p-3.5',

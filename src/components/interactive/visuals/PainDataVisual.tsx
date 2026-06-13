@@ -15,7 +15,7 @@ export function PainDataVisual({ slideIndex }: PainDataVisualProps) {
   const { locale } = useLang();
   const reducedMotion = useReducedMotion();
   const [visible, setVisible] = useState(false);
-  const content = t(landingContent.painVisual.data, locale);
+  const content = t(landingContent.pain.visual.data, locale);
 
   const onEnter = useCallback(() => setVisible(true), []);
   const onLeave = useCallback(() => setVisible(false), []);
