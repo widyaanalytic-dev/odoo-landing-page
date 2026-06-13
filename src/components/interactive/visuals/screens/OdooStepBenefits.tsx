@@ -30,7 +30,7 @@ export function OdooStepBenefits({ stepIndex }: OdooStepBenefitsProps) {
     <AnimatePresence mode="wait">
       <motion.div
         key={step.id}
-        className="pointer-events-none absolute -right-2 -bottom-4 z-30 max-w-[12.5rem] sm:-right-4 sm:-bottom-5 sm:max-w-[15rem]"
+        className="pointer-events-none absolute right-0 -bottom-4 z-30 max-w-[min(100%,12.5rem)] sm:-right-2 sm:-bottom-5 sm:max-w-[15rem]"
         initial={{ opacity: 0, scale: reducedMotion ? 1 : 0.94, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.96, y: -8 }}

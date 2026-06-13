@@ -5,6 +5,8 @@ import { useLenisScroll } from '../../hooks/useLenisScroll';
 import {
   getScrollContainer,
   getScrollContent,
+  getMobileHeaderOffset,
+  getSectionScrollTarget,
   SCROLL_CONTAINER_ID,
   SLIDE_SCROLL_MEDIA,
   SLIDE_NEXT_KEYS,
@@ -46,9 +48,14 @@ export function ScrollProvider({
     const maxScroll = container.scrollHeight - vh;
     setGlobalProgress(maxScroll > 0 ? scrollTop / maxScroll : 0);
 
+    const desktopSnap = window.matchMedia(SLIDE_SCROLL_MEDIA).matches;
+    const anchor = desktopSnap
+      ? scrollTop + vh * 0.5
+      : scrollTop + getMobileHeaderOffset();
+
     let found = 0;
     sections.forEach((section, i) => {
-      if (scrollTop >= section.offsetTop - vh * 0.5) found = i;
+      if (anchor >= section.offsetTop) found = i;
     });
     setActiveSlide(found);
   }, []);
@@ -82,7 +89,11 @@ export function ScrollProvider({
       return;
     }
 
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const offset = getMobileHeaderOffset();
+    container.scrollTo({
+      top: getSectionScrollTarget(section, container, offset),
+      behavior: 'smooth',
+    });
   }, [lenisRef]);
 
   const scrollToSlideById = useCallback(

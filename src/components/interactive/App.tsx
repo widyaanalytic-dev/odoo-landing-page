@@ -16,7 +16,7 @@ export default function App() {
         <SlideNavArrows />
         <main
           id="scroll-container"
-          className="scroll-container relative z-10 h-dvh overflow-y-auto overscroll-y-contain lg:overflow-hidden"
+          className="scroll-container relative z-10 h-dvh max-w-full overflow-x-hidden overflow-y-auto overscroll-y-contain overscroll-x-none lg:overflow-hidden"
         >
           <div id="scroll-content">
             <Slides />

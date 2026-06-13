@@ -22,7 +22,7 @@ export function SolutionSlide({ index, meta }: SlideComponentProps) {
       index={index}
       meta={meta}
       eyebrow={content.eyebrow}
-      className="items-center justify-center pt-[4.75rem] pb-12 sm:pt-24 sm:pb-16 lg:items-start lg:pt-32 lg:pb-36"
+      className="items-center justify-center pt-[var(--mobile-header-offset)] pb-12 sm:pb-16 lg:items-start lg:pt-32 lg:pb-36"
       visual={<SolutionVisual slideIndex={index} />}
       headline={
         <h2 className="text-headline-lg text-brand-deep-navy">

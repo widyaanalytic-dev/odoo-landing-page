@@ -16,6 +16,7 @@
   --color-navy: #14467f;
   --color-deep-navy: #0e2a47;
   --color-white: #ffffff;
+  --mobile-header-offset: 7.5rem;
 }
 
 *,
@@ -26,15 +27,8 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -45,6 +39,8 @@ body {
   color: var(--color-deep-navy);
   background: #eef4f8;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -104,13 +100,31 @@ body {
   line-height: 1.7;
 }
 
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
 .scroll-container {
   -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  max-width: 100%;
+  scroll-padding-top: var(--mobile-header-offset);
+}
+
+#scroll-content {
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 @media (min-width: 1024px) {
   .scroll-container {
     scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
   }
 
   #scroll-content {
@@ -125,12 +139,9 @@ body {
 
 .slide-section {
   isolation: isolate;
-}
-
-@media (min-width: 1024px) {
-  .slide-section {
-    overflow-x: clip;
-  }
+  overflow-x: clip;
+  max-width: 100%;
+  scroll-margin-top: var(--mobile-header-offset);
 }
 
 @media (min-width: 1024px) {
@@ -141,6 +152,7 @@ body {
     height: 100dvh;
     max-height: 100dvh;
     overflow: hidden;
+    scroll-margin-top: 0;
   }
 }
 

@@ -53,7 +53,7 @@ export function HeroVisual({ slideIndex }: HeroVisualProps) {
         aria-hidden
       />
 
-      <div className="relative overflow-visible px-1 pb-14 pt-2 sm:px-4 sm:pb-20 sm:pt-3 lg:px-6">
+      <div className="relative overflow-x-clip px-1 pb-14 pt-2 sm:px-4 sm:pb-20 sm:pt-3 lg:overflow-visible lg:px-6">
         <div className="relative z-10 mx-auto w-full">
           <OdooBrowserFrame>
             <ErpDashboard

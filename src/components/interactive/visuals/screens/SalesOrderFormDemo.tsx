@@ -109,9 +109,8 @@ export function SalesOrderFormDemo({ visible, confirming }: SalesOrderFormDemoPr
         <div className="flex justify-end gap-2 border-t border-[#dee2e6] px-3 py-2">
           <motion.button
             type="button"
-            className={`rounded px-3 py-1 text-[10px] font-semibold text-white lg:text-[11px] ${
-              confirming ? 'bg-[#5c3d55] ring-2 ring-[#714b67]/40' : 'bg-[#714b67]'
-            }`}
+            className={`rounded px-3 py-1 text-[10px] font-semibold text-white lg:text-[11px] ${confirming ? 'bg-[#5c3d55] ring-2 ring-[#714b67]/40' : 'bg-[#714b67]'
+              }`}
             animate={confirming ? { scale: [1, 0.97, 1] } : { scale: 1 }}
             transition={{ duration: 0.55, ease: [0.45, 0.05, 0.55, 0.95] }}
           >

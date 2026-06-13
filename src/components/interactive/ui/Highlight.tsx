@@ -61,10 +61,10 @@ export function Highlight({
         reducedMotion
           ? { duration: 0 }
           : {
-              opacity: { duration: 0.4, delay },
-              scale: { type: 'spring', stiffness: 80, damping: 18, delay },
-              filter: { duration: 0.45, delay },
-            }
+            opacity: { duration: 0.4, delay },
+            scale: { type: 'spring', stiffness: 80, damping: 18, delay },
+            filter: { duration: 0.45, delay },
+          }
       }
       className={cn(
         'inline-block w-fit leading-none',

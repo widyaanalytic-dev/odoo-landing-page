@@ -27,3 +27,26 @@ export function getScrollContainer(): HTMLElement | null {
 export function getScrollContent(): HTMLElement | null {
   return document.getElementById(SCROLL_CONTENT_ID) ?? getScrollContainer();
 }
+
+/** Extra clearance below the fixed mobile header when scrolling to a slide */
+export const MOBILE_SCROLL_BUFFER_PX = 16;
+
+/** Measured fixed header bottom + buffer; 0 on desktop snap mode */
+export function getMobileHeaderOffset(): number {
+  if (typeof window === 'undefined' || isSlideScrollMode()) return 0;
+
+  const header = document.querySelector('header');
+  if (!header) return 120;
+
+  return header.getBoundingClientRect().bottom + MOBILE_SCROLL_BUFFER_PX;
+}
+
+export function getSectionScrollTarget(
+  section: HTMLElement,
+  container: HTMLElement,
+  offset = 0,
+): number {
+  const containerRect = container.getBoundingClientRect();
+  const sectionRect = section.getBoundingClientRect();
+  return Math.max(0, container.scrollTop + (sectionRect.top - containerRect.top) - offset);
+}
