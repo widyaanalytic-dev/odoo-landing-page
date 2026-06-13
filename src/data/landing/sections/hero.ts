@@ -1,0 +1,58 @@
+export const hero = {
+    id: {
+      eyebrow: 'Odoo Implementation Partner',
+      h1: {
+        before: 'Solusi ',
+        highlight: 'ERP Terpercaya',
+        after: ' untuk Bisnis Anda',
+      },
+      description:
+        'Kami mengimplementasikan, mengkustomisasi, dan mengintegrasikan Odoo untuk mendorong efisiensi operasional bisnis di berbagai industri.',
+      trust: 'Dipercaya 11+ perusahaan di 7+ industri — dari agritech hingga alat berat.',
+      ctaPrimary: 'Mulai Konsultasi',
+      ctaSecondary: 'Lihat Portofolio',
+      badge: 'Odoo v15 – v18 · Community & Enterprise',
+      trustedLogosLabel: 'Dipercaya oleh',
+      trustedLogos: [
+        { name: 'Frogs', iconId: 'factory' },
+        { name: 'MSMB', iconId: 'sprout' },
+        { name: 'INAGI', iconId: 'factory' },
+        { name: 'Maximus', iconId: 'truck' },
+        { name: 'UMG Indonesia', iconId: 'truck' },
+        { name: 'Autoconz', iconId: 'building' },
+        { name: 'Genomic', iconId: 'dna' },
+        { name: 'Svarnabumi', iconId: 'hotel' },
+        { name: 'AICI', iconId: 'briefcase' },
+        { name: 'Skilloka', iconId: 'briefcase' },
+        { name: 'Edspert', iconId: 'briefcase' },
+      ],
+    },
+    en: {
+      eyebrow: 'Odoo Implementation Partner',
+      h1: {
+        before: 'Trusted ',
+        highlight: 'ERP Solutions',
+        after: ' for Your Business',
+      },
+      description:
+        'We implement, customize, and integrate Odoo to drive operational efficiency for businesses across industries.',
+      trust: 'Trusted by 11+ companies across 7+ industries — from agritech to heavy equipment.',
+      ctaPrimary: 'Start Consultation',
+      ctaSecondary: 'View Portfolio',
+      badge: 'Odoo v15 – v18 · Community & Enterprise',
+      trustedLogosLabel: 'Trusted by',
+      trustedLogos: [
+        { name: 'Frogs', iconId: 'factory' },
+        { name: 'MSMB', iconId: 'sprout' },
+        { name: 'INAGI', iconId: 'factory' },
+        { name: 'Maximus', iconId: 'truck' },
+        { name: 'UMG Indonesia', iconId: 'truck' },
+        { name: 'Autoconz', iconId: 'building' },
+        { name: 'Genomic', iconId: 'dna' },
+        { name: 'Svarnabumi', iconId: 'hotel' },
+        { name: 'AICI', iconId: 'briefcase' },
+        { name: 'Skilloka', iconId: 'briefcase' },
+        { name: 'Edspert', iconId: 'briefcase' },
+      ],
+    },
+  } as const;
