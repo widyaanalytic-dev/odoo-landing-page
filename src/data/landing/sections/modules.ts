@@ -4,12 +4,12 @@ export const modules = {
     id: {
       eyebrow: 'Kapabilitas',
       highlight: {
-        lead: 'Dari penjualan hingga payroll.',
-        accent: 'Modul yang Kami Kuasai',
+        lead: 'Modul Odoo',
+        accent: 'yang kami kuasai',
       },
       intro:
-        'Kami implementasikan modul Odoo sesuai kebutuhan operasional — mulai dari yang paling kritis, berkembang seiring bisnis Anda.',
-      footnote: '…dan modul lainnya sesuai kebutuhan bisnis Anda.',
+        'Kami implementasikan modul sesuai kebutuhan operasional Anda, mulai dari yang paling kritis.',
+      footnote: 'Dan modul lainnya sesuai kebutuhan bisnis Anda.',
       countBadge: '12+ modul',
       categories: {
         commercial: 'Penjualan & CRM',
@@ -59,12 +59,12 @@ export const modules = {
     en: {
       eyebrow: 'Capabilities',
       highlight: {
-        lead: 'From sales to payroll.',
-        accent: 'Modules We Master',
+        lead: 'Odoo modules',
+        accent: 'we work with',
       },
       intro:
-        'We implement the Odoo modules you need most — starting with what matters, expanding as you grow.',
-      footnote: '…and other modules tailored to your business needs.',
+        'We implement the modules your operations need most, starting with what matters first.',
+      footnote: 'Plus other modules tailored to your business needs.',
       countBadge: '12+ modules',
       categories: {
         commercial: 'Sales & CRM',

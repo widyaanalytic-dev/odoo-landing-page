@@ -52,7 +52,7 @@ export function OdooAppLauncher({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25, delay: 0.05 }}
       >
-        <img src="/odoo_logo.png" alt="Odoo" className="h-5 w-auto" />
+        <img src="/odoo-logo.svg" alt="Odoo" className="h-5 w-auto" />
         <button
           type="button"
           onClick={onClose}

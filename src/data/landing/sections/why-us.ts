@@ -2,30 +2,30 @@ export const whyUs = {
     id: {
       eyebrow: 'Kenapa Kami',
       highlight: {
-        lead: 'Odoo Itu Powerful.',
-        accent: 'Implementasi yang Menentukan.',
+        lead: 'Odoo memang kuat.',
+        accent: 'Implementasinya yang menentukan.',
       },
-      intro: 'ERP terbaik pun gagal jika implementasinya asal-asalan. Di sinilah peran kami:',
+      intro: 'ERP bagus pun tidak membantu jika implementasinya salah. Itu yang kami bantu.',
       bullets: [
         {
           iconId: 'industry' as const,
           title: 'Pengalaman lintas industri',
-          text: 'agritech, manufaktur, healthcare, konstruksi, hospitality, alat berat, hingga jasa',
+          text: 'Agritech, manufaktur, healthcare, konstruksi, hospitality, alat berat, hingga jasa',
         },
         {
           iconId: 'editions' as const,
           title: 'Menguasai Community & Enterprise',
-          text: 'kami rekomendasikan yang sesuai kebutuhan dan anggaran, bukan yang paling mahal',
+          text: 'Kami rekomendasikan edisi yang sesuai kebutuhan dan anggaran, bukan yang paling mahal',
         },
         {
           iconId: 'versions' as const,
           title: 'Odoo v15 hingga v18',
-          text: 'selalu mengikuti versi terbaru',
+          text: 'Selalu mengikuti versi terbaru',
         },
         {
           iconId: 'workflow' as const,
           title: 'Kustomisasi sesuai alur kerja',
-          text: 'sistem menyesuaikan bisnis Anda, bukan sebaliknya',
+          text: 'Sistem menyesuaikan bisnis Anda, bukan sebaliknya',
         },
       ],
       visual: {
@@ -37,13 +37,13 @@ export const whyUs = {
             tags: ['agritech', 'manufaktur', 'healthcare', 'konstruksi', 'hospitality', 'alat berat', 'jasa'],
           },
           editions: {
-            caption: 'Edisi yang tepat — bukan yang termahal',
+            caption: 'Edisi yang tepat, bukan yang termahal',
             community: { label: 'Community', note: 'UKM & startup' },
             enterprise: { label: 'Enterprise', note: 'Korporasi & skala besar' },
             verdict: 'Rekomendasi objektif sesuai kebutuhan',
           },
           versions: {
-            caption: 'Migrasi & upgrade antar versi tanpa ketinggalan',
+            caption: 'Migrasi dan upgrade antar versi tanpa ketinggalan',
             versions: ['v15', 'v16', 'v17', 'v18'],
             latestLabel: 'Terbaru',
           },
@@ -57,30 +57,30 @@ export const whyUs = {
     en: {
       eyebrow: 'Why Us',
       highlight: {
-        lead: 'Odoo Is Powerful.',
-        accent: 'Implementation Makes the Difference.',
+        lead: 'Odoo is powerful.',
+        accent: 'Implementation is what matters.',
       },
-      intro: "Even the best ERP fails with poor implementation. That's where we come in:",
+      intro: 'Even a good ERP fails if the implementation is wrong. That is where we help.',
       bullets: [
         {
           iconId: 'industry' as const,
           title: 'Cross-industry experience',
-          text: 'agritech, manufacturing, healthcare, construction, hospitality, heavy equipment, and services',
+          text: 'Agritech, manufacturing, healthcare, construction, hospitality, heavy equipment, and services',
         },
         {
           iconId: 'editions' as const,
           title: 'Community & Enterprise expertise',
-          text: 'we recommend what fits your needs and budget, not the most expensive option',
+          text: 'We recommend what fits your needs and budget, not the most expensive option',
         },
         {
           iconId: 'versions' as const,
           title: 'Odoo v15 to v18',
-          text: 'always up to date with the latest versions',
+          text: 'Always up to date with the latest versions',
         },
         {
           iconId: 'workflow' as const,
           title: 'Workflow-first customization',
-          text: 'the system adapts to your business, not the other way around',
+          text: 'The system adapts to your business, not the other way around',
         },
       ],
       visual: {
@@ -100,7 +100,7 @@ export const whyUs = {
             ],
           },
           editions: {
-            caption: 'The right edition — not the most expensive',
+            caption: 'The right edition, not the most expensive',
             community: { label: 'Community', note: 'SMBs & startups' },
             enterprise: { label: 'Enterprise', note: 'Corporates & scale' },
             verdict: 'Objective recommendation for your needs',

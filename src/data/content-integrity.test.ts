@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { CONTACT_EMAIL, landingContent } from './landing';
-import { WHY_US_PILLAR_ORDER, PROCESS_STEP_ORDER, DEFAULT_PRODUCTION_PORTFOLIO } from './visual-ids';
+import { partnerLogos } from './partners';
+import { WHY_US_PILLAR_ORDER, PROCESS_STEP_ORDER } from './visual-ids';
 
 describe('content integrity', () => {
   it('why-us bullets cover every pillar id for both locales', () => {
@@ -21,10 +22,21 @@ describe('content integrity', () => {
     }
   });
 
-  it('portfolio production includes default item id', () => {
+  it('portfolio section has copy for both locales', () => {
     for (const locale of ['id', 'en'] as const) {
-      const items = landingContent.portfolioProduction[locale].items;
-      expect(items.some((item) => item.id === DEFAULT_PRODUCTION_PORTFOLIO)).toBe(true);
+      expect(landingContent.portfolio[locale].highlight.accent.length).toBeGreaterThan(0);
+      expect(landingContent.portfolio[locale].visual.stats.length).toBe(3);
+      expect(landingContent.portfolio[locale].visual.allPartnersLabel.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('partner logos include featured entries with src paths', () => {
+    expect(partnerLogos.length).toBe(19);
+    const featured = partnerLogos.filter((p) => p.featured);
+    expect(featured.length).toBeGreaterThan(0);
+    for (const partner of partnerLogos) {
+      expect(partner.src.startsWith('/partners/')).toBe(true);
+      expect(partner.name.length).toBeGreaterThan(0);
     }
   });
 

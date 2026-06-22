@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { fluidEase } from '../../../lib/motion';
 import { motion } from 'motion/react';
 
-export interface ProcessStepSceneContent {
+interface ProcessStepSceneContent {
   caption: string;
   items: string[];
 }

@@ -2,16 +2,16 @@ export const process = {
     id: {
       eyebrow: 'Proses Kerja',
       highlight: {
-        lead: 'Lima langkah terstruktur.',
-        accent: 'Dari Konsultasi hingga Go-Live',
+        lead: 'Lima langkah terstruktur',
+        accent: 'dari konsultasi hingga go-live',
       },
       intro:
-        'Metodologi implementasi kami dirancang transparan — Anda selalu tahu apa yang sedang dikerjakan dan langkah berikutnya.',
+        'Proses implementasi kami transparan. Anda selalu tahu pekerjaan yang sedang berjalan dan langkah berikutnya.',
       steps: [
         {
           id: 'discovery' as const,
           title: 'Discovery',
-          text: 'Kami pelajari proses bisnis, pain points, dan tujuan yang ingin dicapai bersama tim Anda.',
+          text: 'Kami mempelajari proses bisnis, kendala operasional, dan tujuan yang ingin dicapai bersama tim Anda.',
           deliverables: ['Workshop & assessment', 'Dokumen kebutuhan bisnis'],
         },
         {
@@ -47,15 +47,15 @@ export const process = {
       },
       stepScenes: {
         discovery: {
-          caption: 'Memahami bisnis sebelum menulis satu baris kode',
+          caption: 'Memahami bisnis dulu sebelum menulis kode',
           items: ['Workshop', 'Assessment', 'Roadmap'],
         },
         design: {
-          caption: 'Merancang solusi yang tepat — bukan yang paling mahal',
+          caption: 'Solusi yang tepat, bukan yang paling mahal',
           items: ['Modul', 'Edisi', 'Scope'],
         },
         implementation: {
-          caption: 'Build, configure, dan migrasi data dengan terkontrol',
+          caption: 'Konfigurasi, pengembangan, dan migrasi data terkontrol',
           items: ['Config', 'Develop', 'Migrate'],
         },
         training: {
@@ -63,7 +63,7 @@ export const process = {
           items: ['Training', 'UAT', 'Go-live'],
         },
         support: {
-          caption: 'Partner jangka panjang setelah sistem berjalan',
+          caption: 'Tetap dampingi setelah sistem berjalan',
           items: ['Monitor', 'Support', 'Improve'],
         },
       },
@@ -71,16 +71,16 @@ export const process = {
     en: {
       eyebrow: 'How We Work',
       highlight: {
-        lead: 'Five structured steps.',
-        accent: 'From Consultation to Go-Live',
+        lead: 'Five structured steps',
+        accent: 'from consultation to go-live',
       },
       intro:
-        'Our implementation methodology is transparent — you always know what is in progress and what comes next.',
+        'Our implementation process is transparent. You always know what is in progress and what comes next.',
       steps: [
         {
           id: 'discovery' as const,
           title: 'Discovery',
-          text: 'We learn your business processes, pain points, and goals together with your team.',
+          text: 'We learn your business processes, operational challenges, and goals together with your team.',
           deliverables: ['Workshop & assessment', 'Business requirements doc'],
         },
         {
@@ -116,15 +116,15 @@ export const process = {
       },
       stepScenes: {
         discovery: {
-          caption: 'Understanding the business before writing a single line of code',
+          caption: 'Understand the business before writing code',
           items: ['Workshop', 'Assessment', 'Roadmap'],
         },
         design: {
-          caption: 'Designing the right solution — not the most expensive one',
+          caption: 'The right solution, not the most expensive one',
           items: ['Modules', 'Edition', 'Scope'],
         },
         implementation: {
-          caption: 'Build, configure, and migrate data in a controlled way',
+          caption: 'Configure, build, and migrate data in a controlled way',
           items: ['Config', 'Develop', 'Migrate'],
         },
         training: {
@@ -132,7 +132,7 @@ export const process = {
           items: ['Training', 'UAT', 'Go-live'],
         },
         support: {
-          caption: 'A long-term partner after the system is live',
+          caption: 'We stay with you after the system goes live',
           items: ['Monitor', 'Support', 'Improve'],
         },
       },

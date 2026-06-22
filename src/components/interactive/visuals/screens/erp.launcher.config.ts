@@ -197,14 +197,3 @@ export const ODOO_SCENARIO_STEPS: OdooScenarioStep[] = [
 ];
 
 export const ODOO_SCENARIO_LOOP_PAUSE = 3500;
-
-/** @deprecated Use ODOO_SCENARIO_STEPS instead */
-export const ERP_DEMO_STEPS: {
-  app: ErpAppId;
-  tileKey: string;
-  row: string;
-}[] = [
-  { app: 'sales', tileKey: launcherTileKey('sales', 'Sales'), row: 'SO/2024/1042' },
-  { app: 'inventory', tileKey: launcherTileKey('supply', 'Inventory'), row: 'SKU/001' },
-  { app: 'accounting', tileKey: launcherTileKey('finance', 'Accounting'), row: 'INV/2024/0882' },
-];

@@ -17,8 +17,7 @@ export const slidePrimaryContentKey: Record<SlideId, LandingContentKey> = {
   'why-us': 'whyUs',
   modules: 'modules',
   process: 'process',
-  'portfolio-production': 'portfolioProduction',
-  'portfolio-services': 'portfolioServices',
+  portfolio: 'portfolio',
   contact: 'contact',
 };
 

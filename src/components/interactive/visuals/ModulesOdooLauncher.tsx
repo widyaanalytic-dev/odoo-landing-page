@@ -37,7 +37,7 @@ export function ModulesOdooLauncher({
     <div className="odoo-trial-launcher relative flex h-full min-h-0 flex-col overflow-hidden">
       <header className="odoo-trial-launcher__header">
         <img
-          src="/odoo_logo.png"
+          src="/odoo-logo.svg"
           alt="Odoo"
           className="odoo-trial-launcher__header-logo"
           width={72}

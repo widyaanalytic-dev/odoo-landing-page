@@ -11,7 +11,7 @@ export const painDataChecklist = {
       after: '?',
     },
     {
-      before: 'Tidak tahu stok real-time — ',
+      before: 'Tidak tahu stok real-time, jadi ',
       emphasis: 'kelebihan beli atau malah kehabisan barang',
       after: '?',
     },
@@ -28,7 +28,7 @@ export const painDataChecklist = {
       after: '?',
     },
     {
-      before: 'No real-time stock visibility — ',
+      before: 'No real-time stock visibility, so you ',
       emphasis: 'overbuying or running out',
       after: '?',
     },

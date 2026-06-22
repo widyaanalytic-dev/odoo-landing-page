@@ -50,34 +50,37 @@ export function ContactSlide({ index, meta }: SlideComponentProps) {
         <CopyBlock delay={0.16}>
           <div className="mt-5 rounded-xl border border-brand-navy/10 bg-white/70 p-4 backdrop-blur-sm sm:mt-7 sm:p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-brand-navy/40">{visual.emailLabel}</p>
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="mt-2 block break-all text-lg font-semibold text-brand-deep-navy transition-colors hover:text-brand-cyan sm:text-xl"
-            >
-              {CONTACT_EMAIL}
-            </a>
 
-            <div className="mt-4 flex flex-col gap-3">
+            <div className="mt-2 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="break-all text-base font-semibold text-brand-deep-navy transition-colors hover:text-brand-cyan sm:text-lg"
+              >
+                {CONTACT_EMAIL}
+              </a>
               <button
                 type="button"
                 onClick={copyEmail}
+                aria-label={copied ? visual.copiedLabel : visual.copyLabel}
                 className={cn(
-                  'inline-flex w-fit items-center gap-1.5 text-sm font-medium transition-colors',
-                  copied ? 'text-emerald-600' : 'text-brand-navy/50 hover:text-brand-cyan',
+                  'inline-flex shrink-0 items-center gap-1 rounded-md border px-2.5 py-1 text-xs font-medium transition-colors',
+                  copied
+                    ? 'border-emerald-200 bg-emerald-50 text-emerald-600'
+                    : 'border-brand-navy/10 bg-white text-brand-navy/55 hover:border-brand-cyan/30 hover:text-brand-cyan',
                 )}
               >
-                {copied ? <Check size={14} /> : <Copy size={14} />}
+                {copied ? <Check size={13} /> : <Copy size={13} />}
                 {copied ? visual.copiedLabel : visual.copyLabel}
               </button>
-
-              <Button
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="inline-flex w-full items-center justify-center gap-2 !px-6 !py-3.5 !text-sm sm:w-fit"
-              >
-                {content.cta}
-                <ArrowUpRight size={16} />
-              </Button>
             </div>
+
+            <Button
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 !px-6 !py-3.5 !text-sm sm:w-fit"
+            >
+              {content.cta}
+              <ArrowUpRight size={16} />
+            </Button>
           </div>
         </CopyBlock>
 

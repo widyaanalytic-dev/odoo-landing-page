@@ -4,11 +4,10 @@ interface ProofHeadlineProps {
   lead?: string;
   accent: string;
   accentClassName?: string;
-  /** Smaller two-line headline — for long copy on proof slides */
+  /** Smaller two-line headline */
   variant?: 'default' | 'compact';
 }
 
-/** Matches Solution/Empathy headline — inline lead + underline accent, with safe wrap */
 export function ProofHeadline({
   lead,
   accent,

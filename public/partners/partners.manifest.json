@@ -1,0 +1,176 @@
+{
+  "partners": [
+    {
+      "id": "aici",
+      "name": "AICI",
+      "file": "/partners/aici.jpg",
+      "sourceUrl": "https://aici-umg.com/wp-content/uploads/2024/05/800-Anak-Sedang-Bermain-Robot.webp",
+      "website": "https://aici-umg.com",
+      "status": "found",
+      "featured": true
+    },
+    {
+      "id": "autoconz",
+      "name": "Autoconz",
+      "file": "/partners/autoconz.jpg",
+      "sourceUrl": "https://autoconz.com/wp-content/uploads/2024/12/cropped-FAV-LOGO-OKE-32x32.png",
+      "website": "https://autoconz.com",
+      "status": "found",
+      "featured": true
+    },
+    {
+      "id": "primeskills",
+      "name": "Primeskills",
+      "file": "/partners/primeskills.jpg",
+      "sourceUrl": "https://primeskills.co.id",
+      "website": "https://primeskills.co.id",
+      "status": "found",
+      "featured": false
+    },
+    {
+      "id": "frogs",
+      "name": "FROGS",
+      "file": "/partners/frogs.jpg",
+      "sourceUrl": "https://frogs.id/wp-content/uploads/2023/02/cropped-frogs_icon-32x32.png",
+      "website": "https://frogs.id",
+      "status": "found",
+      "featured": true
+    },
+    {
+      "id": "lectro-baterai",
+      "name": "Lectro EMS",
+      "file": "/partners/lectro-baterai.jpg",
+      "sourceUrl": "https://lectro.id",
+      "website": "https://lectro.id",
+      "status": "found",
+      "featured": false
+    },
+    {
+      "id": "widya-life-science",
+      "name": "Widya Life Science",
+      "file": "/partners/widya-life-science.jpg",
+      "sourceUrl": "https://widyalifescience.com",
+      "website": "https://widyalifescience.com",
+      "status": "found",
+      "featured": false
+    },
+    {
+      "id": "widya-matador",
+      "name": "Widya Matador",
+      "file": "/partners/widya-matador.png",
+      "sourceUrl": "https://widyamatador.com/wp-content/uploads/2021/06/logo_matador_black_2x-removebg-preview-removebg-preview.png",
+      "website": "https://widyamatador.com",
+      "status": "found",
+      "featured": true
+    },
+    {
+      "id": "widya-robotic",
+      "name": "Widya Robotic",
+      "file": "/partners/widya-robotic.png",
+      "sourceUrl": "https://widya.ai/wp-content/uploads/2025/08/bg-hero-mobile-1-copy.webp",
+      "website": "https://widya.ai",
+      "status": "found",
+      "featured": false
+    },
+    {
+      "id": "msmb",
+      "name": "MSMB",
+      "file": "/partners/msmb.jpg",
+      "sourceUrl": "https://msmb.co.id",
+      "website": "https://msmb.co.id",
+      "status": "found",
+      "featured": true
+    },
+    {
+      "id": "widya-wicara",
+      "name": "Widya Wicara",
+      "file": "/partners/widya-wicara.jpg",
+      "sourceUrl": "https://widyawicara.com",
+      "website": "https://widyawicara.com",
+      "status": "found",
+      "featured": false
+    },
+    {
+      "id": "widya-skilloka",
+      "name": "Widya Skilloka",
+      "file": "/partners/widya-skilloka.png",
+      "sourceUrl": "https://static.hugedomains.com/images/hdv3-img/og_hugedomains.png",
+      "website": "https://skilloka.com",
+      "status": "found",
+      "featured": true
+    },
+    {
+      "id": "atoma-prosehat",
+      "name": "Atoma Prosehat",
+      "file": "/partners/atoma-prosehat.jpg",
+      "sourceUrl": "https://atomaprosehat.com",
+      "website": "https://atomaprosehat.com",
+      "status": "found",
+      "featured": false
+    },
+    {
+      "id": "widya-herbal",
+      "name": "Widya Herbal",
+      "file": "/partners/widya-herbal.jpg",
+      "sourceUrl": "https://widyaherbal.com",
+      "website": "https://widyaherbal.com",
+      "status": "found",
+      "featured": false
+    },
+    {
+      "id": "widya-genomic",
+      "name": "Widya Genomic",
+      "file": "/partners/widya-genomic.jpg",
+      "sourceUrl": "https://widyagenomic.com",
+      "website": "https://widyagenomic.com",
+      "status": "found",
+      "featured": false
+    },
+    {
+      "id": "widya-immersive-technology",
+      "name": "Widya Imersive Technology",
+      "file": "/partners/widya-immersive-technology.jpg",
+      "sourceUrl": "https://widyaimmersive.com",
+      "website": "https://widyaimmersive.com",
+      "status": "found",
+      "featured": false
+    },
+    {
+      "id": "idealab-indonesia",
+      "name": "Idealab Indonesia",
+      "file": "/partners/idealab-indonesia.png",
+      "sourceUrl": "https://www.umgidealab.id",
+      "website": "https://www.umgidealab.id",
+      "status": "found",
+      "featured": false
+    },
+    {
+      "id": "umg-indonesia",
+      "name": "UMG Indonesia",
+      "file": "/partners/umg-indonesia.png",
+      "sourceUrl": "https://umg.co.id",
+      "website": "https://umg.co.id",
+      "status": "found",
+      "featured": false
+    },
+    {
+      "id": "umg-myanmar",
+      "name": "UMG Myanmar",
+      "file": "/partners/umg-indonesia.png",
+      "sourceUrl": "https://umg.co.id",
+      "website": "https://umg.co.id",
+      "status": "alias",
+      "featured": false
+    },
+    {
+      "id": "umg-srilanka",
+      "name": "UMG Sri Lanka",
+      "file": "/partners/umg-indonesia.png",
+      "sourceUrl": "https://umg.co.id",
+      "website": "https://umg.co.id",
+      "status": "alias",
+      "featured": false
+    }
+  ],
+  "generatedAt": "2026-06-22T09:31:57.381Z"
+}

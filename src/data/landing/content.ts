@@ -9,8 +9,7 @@ import { solution } from './sections/solution';
 import { whyUs } from './sections/why-us';
 import { modules } from './sections/modules';
 import { process } from './sections/process';
-import { portfolioProduction } from './sections/portfolio-production';
-import { portfolioServices } from './sections/portfolio-services';
+import { portfolio } from './sections/portfolio';
 import { contact } from './sections/contact';
 
 export const landingContent = {
@@ -25,7 +24,6 @@ export const landingContent = {
   whyUs,
   modules,
   process,
-  portfolioProduction,
-  portfolioServices,
+  portfolio,
   contact,
 } as const;

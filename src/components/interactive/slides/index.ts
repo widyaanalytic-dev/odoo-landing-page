@@ -1,7 +1,5 @@
 import type { ComponentType } from 'react';
 import type { SlideComponentProps, SlideId } from '../../../data/slides.config';
-
-export type { SlideComponentProps };
 import { AboutCompanySlide } from './AboutCompanySlide';
 import { AboutProductsSlide } from './AboutProductsSlide';
 import { AboutVisionSlide } from './AboutVisionSlide';
@@ -11,8 +9,7 @@ import { HeroSlide } from './HeroSlide';
 import { ModulesSlide } from './ModulesSlide';
 import { PainDataSlide } from './PainDataSlide';
 import { PainProcessSlide } from './PainProcessSlide';
-import { PortfolioProductionSlide } from './PortfolioProductionSlide';
-import { PortfolioServicesSlide } from './PortfolioServicesSlide';
+import { PortfolioSlide } from './PortfolioSlide';
 import { ProblemSlide } from './ProblemSlide';
 import { ProcessSlide } from './ProcessSlide';
 import { SolutionSlide } from './SolutionSlide';
@@ -31,7 +28,6 @@ export const slideComponents: Record<SlideId, ComponentType<SlideComponentProps>
   'why-us': WhyUsSlide,
   modules: ModulesSlide,
   process: ProcessSlide,
-  'portfolio-production': PortfolioProductionSlide,
-  'portfolio-services': PortfolioServicesSlide,
+  portfolio: PortfolioSlide,
   contact: ContactSlide,
 };

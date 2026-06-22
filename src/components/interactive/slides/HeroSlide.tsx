@@ -1,4 +1,5 @@
 import { CONTACT_EMAIL, landingContent, t } from '../../../data/landing';
+import { partnerLogos } from '../../../data/partners';
 import type { SlideComponentProps } from '../../../data/slides.config';
 import { Award } from '../../../lib/icons';
 import { useLang } from '../LangProvider';
@@ -23,7 +24,7 @@ export function HeroSlide({ index, meta }: SlideComponentProps) {
       backdrop={meta.backdrop}
       variant={meta.variant}
       visual={<HeroVisual slideIndex={index} />}
-      footer={<ClientLogoSlider label={content.trustedLogosLabel} items={content.trustedLogos} />}
+      footer={<ClientLogoSlider label={content.trustedLogosLabel} items={partnerLogos} slow />}
     >
       <CopyBlock>
         <Eyebrow>{content.eyebrow}</Eyebrow>
@@ -57,7 +58,7 @@ export function HeroSlide({ index, meta }: SlideComponentProps) {
           </Button>
           <Button
             variant="secondary"
-            onClick={() => scrollToSlideById('portfolio-production')}
+            onClick={() => scrollToSlideById('portfolio')}
             className="!px-6 !py-3 !text-sm sm:!px-7 sm:!py-3.5"
           >
             {content.ctaSecondary}

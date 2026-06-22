@@ -5,7 +5,7 @@ export const modulesCatalogId: ModuleCatalogItem[] = [
     id: 'sales',
     category: 'commercial',
     label: 'Sales Management',
-    blurb: 'Kelola pipeline penjualan dari lead hingga invoice — quotation, order, dan delivery terhubung.',
+    blurb: 'Kelola pipeline penjualan dari lead hingga invoice. Quotation, order, dan delivery saling terhubung.',
     highlights: ['Quotation & sales order otomatis', 'Terintegrasi inventory, invoice, dan CRM'],
   },
   {
@@ -92,7 +92,7 @@ export const modulesCatalogEn: ModuleCatalogItem[] = [
     id: 'sales',
     category: 'commercial',
     label: 'Sales Management',
-    blurb: 'Manage your sales pipeline from lead to invoice — quotes, orders, and delivery connected.',
+    blurb: 'Manage your sales pipeline from lead to invoice. Quotes, orders, and delivery stay connected.',
     highlights: ['Automated quotations & sales orders', 'Integrated with inventory, invoicing, and CRM'],
   },
   {

@@ -134,7 +134,6 @@ export function SolutionVisual({ slideIndex }: SolutionVisualProps) {
           syncEvent={activeModule.syncEvent}
           status={content.status}
           hint={content.hint}
-          caption={content.caption}
         />
       </div>
     </motion.div>

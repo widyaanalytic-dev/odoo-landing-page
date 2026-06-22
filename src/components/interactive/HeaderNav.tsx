@@ -67,7 +67,6 @@ export function HeaderNav() {
   return (
     <header className="pointer-events-none fixed inset-x-0 top-2 z-50 flex justify-center px-3 sm:top-3 sm:px-4 md:top-6">
       <div className="pointer-events-auto w-full max-w-6xl overflow-hidden rounded-2xl border border-white/60 bg-white/80 shadow-lg shadow-brand-navy/10 backdrop-blur-xl md:px-5 md:py-3">
-        {/* Mobile: logo + bahasa, lalu tab 4 kolom */}
         <div className="px-3 py-2.5 md:hidden">
           <div className="flex items-center justify-between gap-3">
             <button
@@ -89,7 +88,7 @@ export function HeaderNav() {
           </div>
 
           <nav
-            className="mt-2.5 grid grid-cols-4 gap-0.5 rounded-xl bg-brand-navy/[0.05] p-0.5"
+            className="mt-2.5 grid grid-cols-5 gap-0.5 rounded-xl bg-brand-navy/[0.05] p-0.5"
             aria-label={navAriaLabel}
           >
             {navSections.map((section) => {
@@ -115,7 +114,6 @@ export function HeaderNav() {
           </nav>
         </div>
 
-        {/* Desktop: satu baris */}
         <div className="hidden items-center gap-3 px-0 py-0 md:flex md:gap-4">
           <button
             type="button"

@@ -21,29 +21,8 @@ export const MODULE_CATEGORY_ORDER: ModuleCategoryId[] = [
   'operations',
 ];
 
-export const DEFAULT_MODULE_CATEGORY: ModuleCategoryId = 'commercial';
-
-/** Keys matching `moduleIcons` in lib/icons.tsx */
-export const MODULE_ICON_KEYS: Record<ModuleId, string> = {
-  sales: 'Sales Management',
-  crm: 'CRM',
-  accounting: 'Accounting & Finance',
-  inventory: 'Inventory',
-  purchase: 'Purchase',
-  mrp: 'Manufacturing (MRP)',
-  attendance: 'Attendance',
-  payroll: 'Payroll',
-  hr: 'Human Resources',
-  restaurant: 'Restaurant Management System',
-  fleet: 'Fleet Management System',
-  project: 'Project Management',
-};
-
-export const DEFAULT_MODULE_ID: ModuleId = 'sales';
-
 const ODOO_ICON_BASE = 'https://download.odoocdn.com/icons';
 
-/** Official Odoo module icons (same CDN as odoo.com/trial) */
 export const MODULE_ODOO_ICONS: Record<ModuleId, string> = {
   sales: `${ODOO_ICON_BASE}/sale_management/static/description/icon.png`,
   crm: `${ODOO_ICON_BASE}/crm/static/description/icon.png`,
@@ -61,7 +40,6 @@ export const MODULE_ODOO_ICONS: Record<ModuleId, string> = {
 
 export const MODULE_ODOO_ICON_FALLBACK = `${ODOO_ICON_BASE}/base/static/description/icon.png`;
 
-/** Short labels matching odoo.com/trial app picker */
 export const MODULE_TRIAL_LABELS: Record<ModuleId, { id: string; en: string }> = {
   sales: { id: 'Sales', en: 'Sales' },
   crm: { id: 'CRM', en: 'CRM' },

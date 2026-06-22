@@ -3,22 +3,16 @@ import { motion } from 'motion/react';
 import type { BackdropVariant, SlideVariant } from '../../../data/slide-layout.types';
 import { cn } from '../../../lib/cn';
 
-export type { BackdropVariant, SlideVariant };
-
-/** Proof slides (7–14): padding + visual height cap via grid child */
 export const proofSlideClass =
   'items-center justify-center pt-[var(--mobile-header-offset)] pb-12 sm:pb-16 lg:pt-32 lg:pb-36 [&_.grid]:min-h-0 [&_.grid]:w-full [&_.grid]:items-center [&_.grid]:justify-items-center [&_.grid>*:last-child]:min-h-0 lg:[&_.grid>*:last-child]:max-h-[min(32rem,calc(100dvh-12rem))]';
 
 /** Centers the visual column on proof slides with interactive panels */
 export const proofVisualCenterClass = `${proofSlideClass} [&_.grid>*:last-child]:flex [&_.grid>*:last-child]:items-center [&_.grid>*:last-child]:justify-center`;
 
-/** About slides: balanced copy + visual alignment */
 export const aboutSlideClass = `${proofSlideClass} lg:items-center [&_.grid]:lg:gap-16 [&_.grid]:xl:gap-20 [&_.grid>*:first-child]:flex [&_.grid>*:first-child]:justify-center [&_.grid>*:last-child]:flex [&_.grid>*:last-child]:items-center [&_.grid>*:last-child]:justify-center`;
 
-/** Portfolio proof slides */
-export const portfolioProofClass = proofVisualCenterClass;
+export const portfolioProofClass = `${proofVisualCenterClass} lg:[&_.grid>*:last-child]:max-h-[min(36rem,calc(100dvh-10rem))]`;
 
-/** Contact slide: visual aligned start on large screens */
 export const contactProofClass = `${proofVisualCenterClass} lg:[&_.grid>*:last-child]:justify-start`;
 
 interface SlideLayoutProps {
@@ -83,11 +77,11 @@ export function SlideLayout({
         'slide-section relative isolate flex flex-col px-5 sm:px-8 md:px-12 lg:px-20 xl:px-24',
         dark && 'text-white',
         resolvedVariant === 'hero' &&
-          'items-center justify-center pb-12 pt-[var(--mobile-header-offset)] sm:pb-20 lg:pb-32 lg:pt-32',
+        'items-center justify-center pb-12 pt-[var(--mobile-header-offset)] sm:pb-20 lg:pb-32 lg:pt-32',
         isCenteredSection &&
-          'items-center justify-center pb-12 pt-[var(--mobile-header-offset)] sm:pb-20 lg:pb-32 lg:pt-32',
+        'items-center justify-center pb-12 pt-[var(--mobile-header-offset)] sm:pb-20 lg:pb-32 lg:pt-32',
         !['hero', 'centered'].includes(resolvedVariant) &&
-          'items-center justify-center pb-12 pt-[var(--mobile-header-offset)] sm:pb-16 lg:pb-36 lg:pt-36',
+        'items-center justify-center pb-12 pt-[var(--mobile-header-offset)] sm:pb-16 lg:pb-36 lg:pt-36',
         className,
       )}
     >
@@ -136,7 +130,7 @@ export function SlideLayout({
             ))}
         </div>
 
-        {footer && <div className="relative z-10 mt-6 shrink-0 sm:mt-8 lg:mt-10">{footer}</div>}
+        {footer && <div className="relative z-10 mt-4 shrink-0 sm:mt-6 lg:mt-8">{footer}</div>}
       </div>
     </section>
   );

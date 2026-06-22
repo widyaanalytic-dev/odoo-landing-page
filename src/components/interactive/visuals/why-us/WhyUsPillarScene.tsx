@@ -4,14 +4,6 @@ import { VersionsScene } from './VersionsScene';
 import { WorkflowScene } from './WorkflowScene';
 import type { WhyUsPillarSceneProps } from './types';
 
-export type {
-  WhyUsEditionsScene,
-  WhyUsIndustryScene,
-  WhyUsSceneMap,
-  WhyUsVersionsScene,
-  WhyUsWorkflowScene,
-} from './types';
-
 export function WhyUsPillarScene({ pillarId, scene, active, reducedMotion }: WhyUsPillarSceneProps) {
   switch (pillarId) {
     case 'industry':

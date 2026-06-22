@@ -14,8 +14,7 @@ export type SlideId =
   | 'why-us'
   | 'modules'
   | 'process'
-  | 'portfolio-production'
-  | 'portfolio-services'
+  | 'portfolio'
   | 'contact';
 
 export interface SlideMeta {
@@ -24,7 +23,6 @@ export interface SlideMeta {
   variant: SlideVariant;
   backdrop: BackdropVariant;
   dark?: boolean;
-  /** Primary key in landingContent — see slide-content.map.ts */
   contentKey: LandingContentKey;
 }
 
@@ -43,8 +41,7 @@ export const slideMetaList: SlideMeta[] = [
   { id: 'why-us', label: 'Why us', variant: 'split', backdrop: 'glow', contentKey: 'whyUs' },
   { id: 'modules', label: 'Modules', variant: 'split-reverse', backdrop: 'light', contentKey: 'modules' },
   { id: 'process', label: 'Process', variant: 'split', backdrop: 'muted', contentKey: 'process' },
-  { id: 'portfolio-production', label: 'Portfolio', variant: 'split-reverse', backdrop: 'glow', contentKey: 'portfolioProduction' },
-  { id: 'portfolio-services', label: 'Portfolio', variant: 'split', backdrop: 'muted', contentKey: 'portfolioServices' },
+  { id: 'portfolio', label: 'Portfolio', variant: 'visual-wide', backdrop: 'glow', contentKey: 'portfolio' },
   { id: 'contact', label: 'Contact', variant: 'split-reverse', backdrop: 'glow', contentKey: 'contact' },
 ];
 
@@ -56,18 +53,15 @@ export function getSlideCount(): number {
   return slideMetaList.length;
 }
 
-export type NavSectionId = 'home' | 'about' | 'solutions' | 'contact';
+export type NavSectionId = 'home' | 'about' | 'solutions' | 'portfolio' | 'contact';
 
 export interface NavSection {
   id: NavSectionId;
   label: { id: string; en: string };
-  /** Slide to scroll to when the nav item is clicked */
   slideId: SlideId;
-  /** First slide where this section becomes active (defaults to slideId) */
   groupStartSlideId?: SlideId;
 }
 
-/** Primary navbar — 4 grouped sections */
 export const navSections: NavSection[] = [
   { id: 'home', label: { id: 'Beranda', en: 'Home' }, slideId: 'hero' },
   {
@@ -81,6 +75,12 @@ export const navSections: NavSection[] = [
     label: { id: 'Solusi', en: 'Solutions' },
     slideId: 'solution',
     groupStartSlideId: 'problem',
+  },
+  {
+    id: 'portfolio',
+    label: { id: 'Portofolio', en: 'Portfolio' },
+    slideId: 'portfolio',
+    groupStartSlideId: 'portfolio',
   },
   { id: 'contact', label: { id: 'Kontak', en: 'Contact' }, slideId: 'contact' },
 ];

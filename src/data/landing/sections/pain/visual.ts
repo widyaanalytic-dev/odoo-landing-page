@@ -1,29 +1,29 @@
 export const painVisualContent = {
   data: {
     id: {
-      hint: 'Tiga spreadsheet terpisah — angka tidak pernah sama',
+      hint: 'Tiga spreadsheet terpisah. Angkanya tidak pernah sama.',
       tableHeaders: { system: 'Sistem', metric: 'Data', status: 'Status' },
       rows: [
         { system: 'Excel Penjualan', metric: 'Stok: 142', status: 'Tidak sinkron', updated: '09:12' },
         { system: 'Excel Gudang', metric: 'Stok: 98', status: 'Tidak sinkron', updated: '08:45' },
         { system: 'Excel Keuangan', metric: 'Omzet: Rp 24jt', status: 'Tidak sinkron', updated: 'Kemarin' },
       ],
-      footer: 'Tidak ada sumber kebenaran — stok real-time mustahil',
+      footer: 'Tidak ada satu sumber data. Stok real-time jadi sulit.',
     },
     en: {
-      hint: 'Three separate spreadsheets — numbers never match',
+      hint: 'Three separate spreadsheets. The numbers never match.',
       tableHeaders: { system: 'System', metric: 'Data', status: 'Status' },
       rows: [
         { system: 'Sales Excel', metric: 'Stock: 142', status: 'Out of sync', updated: '09:12' },
         { system: 'Warehouse Excel', metric: 'Stock: 98', status: 'Out of sync', updated: '08:45' },
         { system: 'Finance Excel', metric: 'Revenue: $24k', status: 'Out of sync', updated: 'Yesterday' },
       ],
-      footer: 'No single source of truth — real-time stock is impossible',
+      footer: 'No single source of truth. Real-time stock becomes difficult.',
     },
   },
   process: {
     id: {
-      hint: 'Laporan, payroll, ERP — semua masih manual & tidak pas',
+      hint: 'Laporan, payroll, dan ERP masih manual serta tidak selaras',
       scenes: [
         { label: 'Laporan bulanan', badge: '3 hari', detail: 'Rekap manual dari banyak file' },
         { label: 'Payroll & absensi', badge: 'Manual', detail: 'Input ulang, rawan salah hitung' },
@@ -31,7 +31,7 @@ export const painVisualContent = {
       ],
     },
     en: {
-      hint: 'Reports, payroll, ERP — still manual and misfit',
+      hint: 'Reports, payroll, and ERP are still manual and misaligned',
       scenes: [
         { label: 'Monthly reports', badge: '3 days', detail: 'Manual consolidation from many files' },
         { label: 'Payroll & attendance', badge: 'Manual', detail: 'Re-entry, prone to calculation errors' },

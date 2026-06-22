@@ -4,11 +4,12 @@ export const contact = {
   id: {
     eyebrow: 'Hubungi Kami',
     highlight: {
-      lead: 'Siap Memulai',
-      accent: 'Transformasi Digital?',
+      lead: 'Butuh bantuan',
+      accent: 'implementasi Odoo?',
     },
-    description: 'Ceritakan kebutuhan bisnis Anda — kami merancang solusi Odoo yang tepat, tanpa komitmen di awal.',
-    response: 'Respons dalam 1×24 jam.',
+    description:
+      'Ceritakan kebutuhan bisnis Anda. Kami bantu merancang solusi Odoo yang pas, tanpa komitmen di awal.',
+    response: 'Kami balas dalam 1×24 jam.',
     cta: 'Mulai Konsultasi',
     bullets: [
       {
@@ -32,7 +33,7 @@ export const contact = {
       emailLabel: 'Email kami',
       copyLabel: 'Salin',
       copiedLabel: 'Tersalin!',
-      tagline: 'Technology • AI • Digital Solution',
+      tagline: 'Technology, AI, Digital Solution',
       identityTitle: 'Identitas Perusahaan',
       identity: [
         { iconId: 'company', label: 'Nama Perusahaan', value: 'PT Widya Intelektual Bangsa' },
@@ -52,12 +53,12 @@ export const contact = {
   en: {
     eyebrow: 'Get in Touch',
     highlight: {
-      lead: 'Ready to Start Your',
-      accent: 'Digital Transformation?',
+      lead: 'Need help with',
+      accent: 'your Odoo project?',
     },
     description:
-      'Tell us what you need — we design the right Odoo solution, with no upfront commitment.',
-    response: 'Response within 24 hours.',
+      'Tell us what your business needs. We will help design the right Odoo solution with no upfront commitment.',
+    response: 'We reply within 24 hours.',
     cta: 'Start Consultation',
     bullets: [
       {
@@ -81,7 +82,7 @@ export const contact = {
       emailLabel: 'Our email',
       copyLabel: 'Copy',
       copiedLabel: 'Copied!',
-      tagline: 'Technology • AI • Digital Solution',
+      tagline: 'Technology, AI, Digital Solution',
       identityTitle: 'Company Identity',
       identity: [
         { iconId: 'company', label: 'Company Name', value: 'PT Widya Intelektual Bangsa' },

@@ -176,24 +176,32 @@ html.lenis body {
   background-size: 48px 48px;
 }
 
-.glass-panel {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(16px) saturate(1.4);
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.8) inset,
-    0 24px 48px -24px rgba(14, 42, 71, 0.22);
-}
-
-.glass-panel-dark {
-  background: rgba(14, 42, 71, 0.55);
-  backdrop-filter: blur(20px) saturate(1.2);
-  border: 1px solid rgba(41, 171, 226, 0.15);
-  box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.45);
-}
-
 .logo-marquee-mask {
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+}
+
+/* Hero trusted-by band — soft white wash that fades into glow backdrop (#e8f6fc → #f8fbfd) */
+.trusted-by-band {
+  background: linear-gradient(180deg,
+      rgb(232 246 252 / 0) 0%,
+      rgb(255 255 255 / 0.45) 8%,
+      rgb(255 255 255 / 0.88) 18%,
+      rgb(255 255 255 / 0.98) 30%,
+      #ffffff 42%,
+      #ffffff 58%,
+      rgb(255 255 255 / 0.98) 70%,
+      rgb(255 255 255 / 0.82) 82%,
+      rgb(248 251 253 / 0.55) 92%,
+      rgb(248 251 253 / 0) 100%);
+}
+
+/* IdeaLab JPG cards on non-white areas: white box fades into backdrop */
+.partner-logo-img {
+  mix-blend-mode: multiply;
+}
+
+.trusted-by-band .partner-logo-img {
+  mix-blend-mode: normal;
 }
 
 @keyframes logo-marquee {
@@ -208,6 +216,10 @@ html.lenis body {
 
 .animate-logo-marquee {
   animation: logo-marquee 35s linear infinite;
+}
+
+.animate-logo-marquee-slow {
+  animation: logo-marquee 60s linear infinite;
 }
 
 /* Odoo trial page app picker — scoped typography & layout */

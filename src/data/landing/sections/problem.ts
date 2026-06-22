@@ -1,20 +1,20 @@
 export const problem = {
     id: {
       lead: 'Mengelola operasional bisnis dengan sistem yang terpisah-pisah',
-      highlight: 'ITU MELELAHKAN.',
+      highlight: 'MELELAHKAN.',
       visual: {
         phases: {
           chaos: {
-            hint: 'Data beda-beda di setiap sistem — tidak pernah cocok',
+            hint: 'Data di tiap sistem beda sendiri. Angkanya jarang pernah sama.',
             title: 'Tidak sinkron',
           },
           manual: {
-            hint: 'Copy-paste, cek ulang, koordinasi manual — setiap hari',
-            steps: ['Copy ke Excel', 'Kirim WA ke gudang', 'Rekap ulang ke keuangan'],
+            hint: 'Copy-paste, cek ulang, koordinasi manual. Setiap hari.',
+            steps: ['Copy ke Excel', 'Koordinasi manual ke gudang', 'Rekap ulang ke keuangan'],
           },
           seamless: {
-            hint: 'Bayangkan semua terhubung — real-time, tanpa rekap manual',
-            label: 'Real-time sync',
+            hint: 'Semua terhubung real-time, tanpa rekap manual.',
+            label: 'Sinkron real-time',
           },
         },
         silos: {
@@ -33,7 +33,7 @@ export const problem = {
         phaseLabels: {
           chaos: 'Kacau',
           manual: 'Manual',
-          seamless: 'Seamless',
+          seamless: 'Terintegrasi',
         },
         conflictCallout: '142 ≠ 98',
         alertChips: {
@@ -48,15 +48,15 @@ export const problem = {
       visual: {
         phases: {
           chaos: {
-            hint: 'Different data in every system — never matches',
+            hint: 'Every system shows different numbers. They rarely match.',
             title: 'Out of sync',
           },
           manual: {
-            hint: 'Copy-paste, double-check, manual coordination — every day',
+            hint: 'Copy-paste, double-checks, and manual coordination. Every day.',
             steps: ['Copy to Excel', 'Message warehouse on WhatsApp', 'Reconcile finance again'],
           },
           seamless: {
-            hint: 'Imagine everything connected — real-time, no manual reports',
+            hint: 'Everything connected in real time, without manual reports.',
             label: 'Real-time sync',
           },
         },

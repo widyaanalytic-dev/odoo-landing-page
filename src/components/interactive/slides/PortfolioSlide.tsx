@@ -3,11 +3,11 @@ import type { SlideComponentProps } from '../../../data/slides.config';
 import { useLang } from '../LangProvider';
 import { ProofSlide } from '../ui/ProofSlide';
 import { portfolioProofClass } from '../ui/SlideLayout';
-import { PortfolioProductionVisual } from '../visuals/PortfolioProductionVisual';
+import { PortfolioVisual } from '../visuals/PortfolioVisual';
 
-export function PortfolioProductionSlide({ index, meta }: SlideComponentProps) {
+export function PortfolioSlide({ index, meta }: SlideComponentProps) {
   const { locale } = useLang();
-  const content = t(landingContent.portfolioProduction, locale);
+  const content = t(landingContent.portfolio, locale);
 
   return (
     <ProofSlide
@@ -18,7 +18,7 @@ export function PortfolioProductionSlide({ index, meta }: SlideComponentProps) {
       headlineVariant="compact"
       copyClassName="min-w-0 max-w-md lg:max-w-lg"
       introClassName="text-body mt-4 max-w-sm text-brand-navy/70 sm:mt-5 lg:mt-6"
-      visual={<PortfolioProductionVisual slideIndex={index} />}
+      visual={<PortfolioVisual slideIndex={index} />}
     />
   );
 }

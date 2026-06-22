@@ -29,7 +29,7 @@ export const SOLUTION_SCENE = {
   } satisfies Record<SolutionModuleId, number>,
 } as const;
 
-export function solutionNodePosition(moduleId: SolutionModuleId) {
+function solutionNodePosition(moduleId: SolutionModuleId) {
   const angleDeg = SOLUTION_SCENE.moduleAngles[moduleId];
   const rad = (angleDeg * Math.PI) / 180;
   return {

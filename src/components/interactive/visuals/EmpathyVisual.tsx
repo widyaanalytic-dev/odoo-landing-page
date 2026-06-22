@@ -29,11 +29,11 @@ export function EmpathyVisual({ slideIndex }: EmpathyVisualProps) {
       className="relative w-full min-w-0 py-2"
     >
       <div
-        className="pointer-events-none absolute -inset-x-4 -inset-y-4 -z-10 rounded-[2.5rem] bg-gradient-to-br from-brand-cyan/[0.08] via-brand-muted/40 to-transparent blur-2xl sm:-inset-x-8 sm:-inset-y-6"
+        className="pointer-events-none absolute -inset-x-6 -inset-y-5 -z-10 rounded-[2.5rem] bg-gradient-to-br from-brand-cyan/[0.08] via-brand-muted/40 to-transparent blur-2xl sm:-inset-x-8 sm:-inset-y-6"
         aria-hidden
       />
 
-      <div className="relative px-1 sm:px-2">
+      <div className="relative mx-auto w-full max-w-[min(100%,22rem)] px-1 sm:max-w-[min(100%,26rem)] sm:px-2">
         <div className="relative mb-6 pt-2 sm:mb-10">
           <svg
             className="pointer-events-none absolute left-[10%] right-[10%] top-[1.75rem] h-px overflow-visible sm:top-8"
@@ -126,7 +126,7 @@ export function EmpathyVisual({ slideIndex }: EmpathyVisualProps) {
         </motion.div>
 
         <motion.p
-          className="text-center text-sm leading-relaxed text-brand-navy/55 sm:text-[15px]"
+          className="mx-auto max-w-full text-balance px-1 text-center text-sm leading-relaxed text-brand-navy/55 sm:text-[15px]"
           initial={{ opacity: 0 }}
           animate={{ opacity: visible ? 1 : 0 }}
           transition={{ duration: 0.45, delay: reducedMotion ? 0 : 1, ease: fluidEase }}
@@ -135,7 +135,7 @@ export function EmpathyVisual({ slideIndex }: EmpathyVisualProps) {
         </motion.p>
 
         <motion.p
-          className="mt-4 text-center text-[11px] leading-relaxed text-brand-navy/35 sm:text-xs"
+          className="mx-auto mt-4 max-w-full text-balance px-1 text-center text-[11px] leading-relaxed text-brand-navy/35 sm:text-xs"
           initial={{ opacity: 0 }}
           animate={{ opacity: visible ? 1 : 0 }}
           transition={{ duration: 0.45, delay: reducedMotion ? 0 : 1.15, ease: fluidEase }}

@@ -8,7 +8,7 @@ import { useLang } from '../LangProvider';
 import { useSlideInView } from '../../../hooks/useSlideInView';
 import type { WhyUsPillarId } from './whyUs.visual.config';
 import { WHY_US_PILLAR_ORDER } from './whyUs.visual.config';
-import { WhyUsPillarScene } from './WhyUsPillarScene';
+import { WhyUsPillarScene } from './why-us/WhyUsPillarScene';
 import { GridDetailExplorer } from '../ui/GridDetailExplorer';
 import { NotepadFrame } from '../ui/NotepadFrame';
 
@@ -39,7 +39,7 @@ function PartnershipLogoBar() {
         />
         <span className="text-sm font-bold text-brand-cyan/45 sm:text-base">×</span>
         <img
-          src="/odoo_logo.png"
+          src="/odoo-logo.svg"
           alt="Odoo"
           className="h-7 w-auto object-contain sm:h-8"
           width={80}

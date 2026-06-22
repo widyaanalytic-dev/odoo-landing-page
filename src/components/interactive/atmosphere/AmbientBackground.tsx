@@ -25,7 +25,6 @@ export function AmbientBackground() {
         transition={{ type: 'spring', stiffness: 40, damping: 20 }}
       />
 
-      {/* Network motif — brand thread */}
       <svg className="absolute inset-0 h-full w-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
