@@ -30,7 +30,7 @@ test.describe('scroll navigation', () => {
   test('navbar jumps to contact section', async ({ page }) => {
     await page.getByRole('button', { name: 'Kontak', exact: true }).click();
     // Last slide may not register full viewport ratio with Lenis + snap; assert content instead
-    await expect(page.getByText('admin@widyaanalytic.org').first()).toBeVisible({ timeout: 15_000 });
+    await expect(page.getByText('sales@widyaanalytic.org').first()).toBeVisible({ timeout: 15_000 });
     await expect(page.locator('[data-slide="14"]')).toContainText('Hubungi Kami');
   });
 

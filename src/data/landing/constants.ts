@@ -1,1 +1,1 @@
-export const CONTACT_EMAIL = 'admin@widyaanalytic.org';
+export const CONTACT_EMAIL = 'sales@widyaanalytic.org';
